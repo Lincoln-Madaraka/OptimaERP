@@ -30,6 +30,6 @@
 }
 
 // The masthead logo is the OptimaERP wordmark, so the app name printed beside it would read twice.
-.brand-logo[src*="optimaerp-wordmark"] + .brand-name {
+.brand-logo[src$="optimaerp-wordmark.png"] + .brand-name {
 	display: none;
 }
