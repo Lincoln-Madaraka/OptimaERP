@@ -280,7 +280,7 @@ const ForceClearVoucherForm = ({ voucher, bankAccount, companyID, onClose }: { v
         }
     })
 
-    const { call, loading, error } = useFrappePostCall('erpnext.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.update_clearance_date')
+    const { call, loading, error } = useFrappePostCall('optimaerp.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.update_clearance_date')
 
     const onSubmit = (data: { clearance_date: string }) => {
         call({

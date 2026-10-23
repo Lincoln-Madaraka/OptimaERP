@@ -125,7 +125,7 @@ export interface GetStatementDetailsResponse {
 }
 
 export const useGetStatementDetails = (id: string) => {
-    return useFrappeGetCall<{ message: GetStatementDetailsResponse }>("erpnext.accounts.doctype.bank_statement_import_log.bank_statement_import_log.get_statement_details", {
+    return useFrappeGetCall<{ message: GetStatementDetailsResponse }>("optimaerp.accounts.doctype.bank_statement_import_log.bank_statement_import_log.get_statement_details", {
         statement_import_id: id,
     }, undefined, {
         revalidateOnFocus: false
@@ -134,21 +134,21 @@ export const useGetStatementDetails = (id: string) => {
 }
 
 export const useUpdatePDFTables = () => {
-    return useFrappePostCall<{ message: GetStatementDetailsResponse }>("erpnext.accounts.doctype.bank_statement_import_log.bank_statement_import_log.update_pdf_tables")
+    return useFrappePostCall<{ message: GetStatementDetailsResponse }>("optimaerp.accounts.doctype.bank_statement_import_log.bank_statement_import_log.update_pdf_tables")
 }
 
 export const useReextractPDFTable = () => {
-    return useFrappePostCall<{ message: GetStatementDetailsResponse }>("erpnext.accounts.doctype.bank_statement_import_log.bank_statement_import_log.reextract_pdf_table")
+    return useFrappePostCall<{ message: GetStatementDetailsResponse }>("optimaerp.accounts.doctype.bank_statement_import_log.bank_statement_import_log.reextract_pdf_table")
 }
 
 export const useSetPDFTableHeader = () => {
-    return useFrappePostCall<{ message: GetStatementDetailsResponse }>("erpnext.accounts.doctype.bank_statement_import_log.bank_statement_import_log.set_pdf_table_header")
+    return useFrappePostCall<{ message: GetStatementDetailsResponse }>("optimaerp.accounts.doctype.bank_statement_import_log.bank_statement_import_log.set_pdf_table_header")
 }
 
 export const useUpdateColumnMapping = () => {
-    return useFrappePostCall<{ message: GetStatementDetailsResponse }>("erpnext.accounts.doctype.bank_statement_import_log.bank_statement_import_log.update_column_mapping")
+    return useFrappePostCall<{ message: GetStatementDetailsResponse }>("optimaerp.accounts.doctype.bank_statement_import_log.bank_statement_import_log.update_column_mapping")
 }
 
 export const useSetHeaderIndex = () => {
-    return useFrappePostCall<{ message: GetStatementDetailsResponse }>("erpnext.accounts.doctype.bank_statement_import_log.bank_statement_import_log.set_header_index")
+    return useFrappePostCall<{ message: GetStatementDetailsResponse }>("optimaerp.accounts.doctype.bank_statement_import_log.bank_statement_import_log.set_header_index")
 }

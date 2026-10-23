@@ -67,18 +67,18 @@ jobs:
 
       # The v14 baseline backup is a fixed published file — cache it instead of re-downloading
       # it from the GitHub release every run.
-      - name: Cache erpnext v14 backup
+      - name: Cache optimaerp v14 backup
         id: cache-v14
         uses: actions/cache@v4
         with:
-          path: ~/erpnext-v14.sql.gz
-          key: erpnext-v14-sql-gz
+          path: ~/optimaerp-v14.sql.gz
+          key: optimaerp-v14-sql-gz
 
-      - name: Download erpnext v14 backup
+      - name: Download optimaerp v14 backup
         if: steps.cache-v14.outputs.cache-hit != 'true'
         run: |
           curl -fSL --retry 5 --retry-all-errors --retry-delay 5 \
-            -o ~/erpnext-v14.sql.gz \
+            -o ~/optimaerp-v14.sql.gz \
             https://github.com/frappe/erpnext/releases/download/v14-baseline/erpnext-v14.sql.gz
 
       - name: Cache pip
@@ -131,10 +131,10 @@ jobs:
           jq 'del(.install_apps)' ~/frappe-bench/sites/test_site/site_config.json > tmp.json
           mv tmp.json ~/frappe-bench/sites/test_site/site_config.json
 
-          bench --site test_site --force restore ~/erpnext-v14.sql.gz
+          bench --site test_site --force restore ~/optimaerp-v14.sql.gz
 
           git -C "apps/frappe" remote set-url upstream https://github.com/frappe/frappe.git
-          git -C "apps/erpnext" remote set-url upstream https://github.com/frappe/erpnext.git
+          git -C "apps/optimaerp" remote set-url upstream https://github.com/frappe/erpnext.git
 
           # Start every bench process except the background workers. If workers run during a
           # migrate, they pick up the orphan-link cleanup jobs it enqueues and race its schema
@@ -154,16 +154,16 @@ jobs:
 
             # Fetch and checkout branches
             git -C "apps/frappe" fetch --depth 1 upstream $branch_name:$branch_name
-            git -C "apps/erpnext" fetch --depth 1 upstream $branch_name:$branch_name
+            git -C "apps/optimaerp" fetch --depth 1 upstream $branch_name:$branch_name
             git -C "apps/frappe" checkout -q -f $branch_name
-            git -C "apps/erpnext" checkout -q -f $branch_name
+            git -C "apps/optimaerp" checkout -q -f $branch_name
 
             # Resetup env and install apps
             pgrep honcho | xargs kill
             sleep 10
             rm -rf ~/frappe-bench/env
             bench -v setup env --python python$2
-            bench pip install -e ./apps/erpnext
+            bench pip install -e ./apps/optimaerp
             start_bench_without_workers
 
             bench --site test_site migrate
@@ -198,12 +198,12 @@ jobs:
           fi
           git -C "apps/frappe" fetch --depth 1 upstream "$frappe_ref"
           git -C "apps/frappe" checkout -q -f FETCH_HEAD
-          git -C "apps/erpnext" checkout -q -f "$GITHUB_SHA"
+          git -C "apps/optimaerp" checkout -q -f "$GITHUB_SHA"
 
           pgrep honcho | xargs kill
           rm -rf ~/frappe-bench/env
           bench -v setup env
-          bench pip install -e ./apps/erpnext
+          bench pip install -e ./apps/optimaerp
           start_bench_without_workers
 
           bench --site test_site migrate

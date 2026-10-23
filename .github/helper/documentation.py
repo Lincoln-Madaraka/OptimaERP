@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 import requests
 
 WEBSITE_REPOS = [
-	"erpnext_com",
+	"optimaerp_com",
 	"frappe_io",
 ]
 

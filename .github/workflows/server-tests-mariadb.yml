@@ -46,7 +46,7 @@ env:
   DEBIAN_FRONTEND: noninteractive
   NODE_ENV: "production"
   WITH_COVERAGE: ${{ github.event_name != 'pull_request' }}
-  ERPNEXT_CI_USER: ci
+  OPTIMAERP_CI_USER: ci
   PIP_CACHE_DIR: /home/ci/.cache/pip
   npm_config_cache: /home/ci/.cache/npm
   YARN_CACHE_FOLDER: /home/ci/.cache/yarn
@@ -61,7 +61,7 @@ jobs:
     # Dedicated scale set (fat cpu request) so the build+reinstall runs at full speed, uncontended
     # by the many thin test shards. Same CI image + /home/ci path + 127.0.0.1 DB as the shards,
     # so the packaged bench (and its venv) transplants cleanly.
-    runs-on: erpnext-arc-setup
+    runs-on: optimaerp-arc-setup
     timeout-minutes: 40
     container:
       image: ghcr.io/frappe/erpnext-ci-mariadb:py3.14-node24
@@ -112,9 +112,9 @@ jobs:
 
       - name: Warm up test data
         run: |
-          su -m "${ERPNEXT_CI_USER:-frappe}" -s /bin/bash <<'EOF'
+          su -m "${OPTIMAERP_CI_USER:-frappe}" -s /bin/bash <<'EOF'
           cd ~/frappe-bench/
-          bench --site test_site run-tests --lightmode --module erpnext.tests.bootstrap_test_data
+          bench --site test_site run-tests --lightmode --module optimaerp.tests.bootstrap_test_data
           EOF
 
       # Clean shutdown (consistent InnoDB datadir), then stage it inside the bench for packaging.
@@ -150,7 +150,7 @@ jobs:
   test:
     name: Python Unit Tests
     needs: setup
-    runs-on: erpnext-arc
+    runs-on: optimaerp-arc
     timeout-minutes: 60
     container:
       image: ghcr.io/frappe/erpnext-ci-mariadb:py3.14-node24
@@ -185,11 +185,11 @@ jobs:
 
       - name: Run Tests
         run: |
-          su -m "${ERPNEXT_CI_USER:-frappe}" -s /bin/bash <<'EOF'
+          su -m "${OPTIMAERP_CI_USER:-frappe}" -s /bin/bash <<'EOF'
           cd ~/frappe-bench/
           coverage_flag=""
           if [ "$WITH_COVERAGE" = "true" ]; then coverage_flag="--with-coverage"; fi
-          bench --site test_site run-parallel-tests --lightmode --app erpnext \
+          bench --site test_site run-parallel-tests --lightmode --app optimaerp \
             --total-builds ${{ strategy.job-total }} \
             --build-number ${{ matrix.container }} \
             $coverage_flag

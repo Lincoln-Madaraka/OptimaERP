@@ -41,7 +41,7 @@ const MatchFilters = () => {
 
 const MatchFiltersContent = () => {
 
-    const { data } = useFrappeGetCall<{ message: string[] }>("erpnext.accounts.doctype.bank_transaction.bank_transaction.get_doctypes_for_bank_reconciliation", undefined,
+    const { data } = useFrappeGetCall<{ message: string[] }>("optimaerp.accounts.doctype.bank_transaction.bank_transaction.get_doctypes_for_bank_reconciliation", undefined,
         "bank_rec_doctypes", {
         revalidateOnFocus: false,
         revalidateIfStale: false,

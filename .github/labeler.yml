@@ -1,55 +1,55 @@
 accounts:
-- erpnext/accounts/*
-- erpnext/controllers/accounts_controller.py
-- erpnext/controllers/taxes_and_totals.py
+- optimaerp/accounts/*
+- optimaerp/controllers/accounts_controller.py
+- optimaerp/controllers/taxes_and_totals.py
 
 stock:
-- erpnext/stock/*
-- erpnext/controllers/stock_controller.py
-- erpnext/controllers/item_variant.py
+- optimaerp/stock/*
+- optimaerp/controllers/stock_controller.py
+- optimaerp/controllers/item_variant.py
 
 assets:
-- erpnext/assets/*
+- optimaerp/assets/*
 
 regional:
-- erpnext/regional/*
+- optimaerp/regional/*
 
 selling:
-- erpnext/selling/*
-- erpnext/controllers/selling_controller.py
+- optimaerp/selling/*
+- optimaerp/controllers/selling_controller.py
 
 buying:
-- erpnext/buying/*
-- erpnext/controllers/buying_controller.py
+- optimaerp/buying/*
+- optimaerp/controllers/buying_controller.py
 
 support:
-- erpnext/support/*
+- optimaerp/support/*
 
 POS:
 - pos*
 
 ecommerce:
-- erpnext/e_commerce/*
+- optimaerp/e_commerce/*
 
 maintenance:
-- erpnext/maintenance/*
+- optimaerp/maintenance/*
 
 manufacturing:
-- erpnext/manufacturing/*
+- optimaerp/manufacturing/*
 
 crm:
-- erpnext/crm/*
+- optimaerp/crm/*
 
 HR:
-- erpnext/hr/*
+- optimaerp/hr/*
 
 payroll:
-- erpnext/payroll*
+- optimaerp/payroll*
 
 projects:
-- erpnext/projects/*
+- optimaerp/projects/*
 
 # Any python files modifed but no test files modified
 needs-tests:
-- any: ['erpnext/**/*.py']
-  all: ['!erpnext/**/test*.py']
+- any: ['optimaerp/**/*.py']
+  all: ['!optimaerp/**/test*.py']

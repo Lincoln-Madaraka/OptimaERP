@@ -1,8 +1,8 @@
 ### Introduction (For First-Time Contributors)
 
-Thank you for your interest in raising an issue with ERPNext. An issue can be either a bug report or a feature request.
+Thank you for your interest in raising an issue with OptimaERP. An issue can be either a bug report or a feature request.
 
-By reporting bugs, you contribute directly to improving ERPNext. Bug reports help developers identify and fix issues quickly before they affect more users.
+By reporting bugs, you contribute directly to improving OptimaERP. Bug reports help developers identify and fix issues quickly before they affect more users.
 
 Feature requests are also valuable. They help shape the future of the product by introducing new ideas and improvements based on real-world use cases.
 
@@ -42,7 +42,7 @@ If that happens, please provide the requested information and reopen the issue.
    Clearly list the steps required to reproduce the issue. If the issue cannot be reproduced, it cannot be fixed.
 
 2. **Version number:**  
-   Include the ERPNext version. The issue may already be fixed in a newer release.
+   Include the OptimaERP version. The issue may already be fixed in a newer release.
 
 3. **Clear title:**  
    Use a descriptive title (e.g., "Unable to submit Purchase Order without Basic Rate" instead of "Cannot submit").

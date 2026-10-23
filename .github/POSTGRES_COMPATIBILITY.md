@@ -1,6 +1,6 @@
 # PostgreSQL compatibility — review guide
 
-ERPNext targets **both MariaDB and PostgreSQL from a single codebase**. The full server
+OptimaERP targets **both MariaDB and PostgreSQL from a single codebase**. The full server
 test suite passes on both, but the PostgreSQL CI job is **label-gated** (it does not run on
 every PR), so until it is required this guide is the always-on guard. Greptile loads it as
 review context (`.greptile/config.json`).

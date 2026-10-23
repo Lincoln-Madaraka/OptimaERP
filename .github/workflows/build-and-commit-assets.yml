@@ -27,12 +27,12 @@ jobs:
 
       - uses: actions/checkout@v4
         with:
-          path: apps/erpnext
+          path: apps/optimaerp
 
       - name: Create bench structure
         run: |
           mkdir -p sites
-          printf "frappe\nerpnext\n" > sites/apps.txt
+          printf "frappe\noptimaerp\n" > sites/apps.txt
 
       - uses: actions/setup-node@v4
         with:
@@ -44,8 +44,8 @@ jobs:
         working-directory: apps/frappe
         run: yarn install --frozen-lockfile
 
-      - name: Install erpnext JS dependencies
-        working-directory: apps/erpnext
+      - name: Install optimaerp JS dependencies
+        working-directory: apps/optimaerp
         run: yarn install --frozen-lockfile --ignore-scripts
 
       - name: Link node_modules into public/
@@ -57,14 +57,14 @@ jobs:
         run: yarn run production
 
       - name: Package assets
-        working-directory: apps/erpnext
-        run: tar czf erpnext-assets.tar.gz -C ../../sites/assets/erpnext dist
+        working-directory: apps/optimaerp
+        run: tar czf optimaerp-assets.tar.gz -C ../../sites/assets/optimaerp dist
 
       - name: Upload to rolling release
-        working-directory: apps/erpnext
+        working-directory: apps/optimaerp
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           TAG="assets-${GITHUB_REF_NAME//\//-}"
           gh release create "$TAG" --prerelease --title "Assets: $GITHUB_REF_NAME" --notes "" 2>/dev/null || true
-          gh release upload "$TAG" erpnext-assets.tar.gz --clobber
+          gh release upload "$TAG" optimaerp-assets.tar.gz --clobber

@@ -18,7 +18,7 @@ export default defineConfig({
 		}
 	},
 	build: {
-		outDir: '../erpnext/public/banking',
+		outDir: '../optimaerp/public/banking',
 		emptyOutDir: true,
 		target: 'es2015',
 		rollupOptions: {

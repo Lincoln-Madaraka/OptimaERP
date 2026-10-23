@@ -13,13 +13,13 @@
 #
 set -e
 
-ci_user="${ERPNEXT_CI_USER:-frappe}"
+ci_user="${OPTIMAERP_CI_USER:-frappe}"
 
 # Re-exec as the ci user so mariadbd and the datadir are owned consistently (root mariadbd is
 # refused anyway). Mirrors install.sh's user switch.
 if [ "$(id -u)" = "0" ] && [ "${SKIP_SYSTEM_SETUP:-0}" = "1" ] && [ "$ci_user" != "root" ]; then
     exec su -m "$ci_user" -s /bin/bash -c \
-        "ERPNEXT_CI_USER='$ci_user' CI_DB_DATADIR='${CI_DB_DATADIR:-}' DB='${DB:-}' bash '$0'"
+        "OPTIMAERP_CI_USER='$ci_user' CI_DB_DATADIR='${CI_DB_DATADIR:-}' DB='${DB:-}' bash '$0'"
 fi
 
 # --- PostgreSQL (GitHub-hosted CI): run in-runner on a PGDATA so it bakes into the artifact,

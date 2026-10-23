@@ -7,7 +7,7 @@ import { DirectionProvider } from './components/ui/direction.tsx'
 
 
 if (import.meta.env.DEV) {
-  fetch('/api/method/erpnext.www.banking.get_context_for_dev', {
+  fetch('/api/method/optimaerp.www.banking.get_context_for_dev', {
     method: 'POST',
   }).then(response => response.json()).then((values) => {
     if (!window.frappe) window.frappe = {};

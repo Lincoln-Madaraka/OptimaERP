@@ -21,7 +21,7 @@ const useFiscalYear = () => {
     const company = useCurrentCompany()
 
     const { data, ...rest } = useFrappeGetCall<{ message: FiscalYear | [string, string, string] | false }>(
-        "erpnext.accounts.utils.get_fiscal_year",
+        "optimaerp.accounts.utils.get_fiscal_year",
         {
             date: dayjs().format("YYYY-MM-DD"),
             company,

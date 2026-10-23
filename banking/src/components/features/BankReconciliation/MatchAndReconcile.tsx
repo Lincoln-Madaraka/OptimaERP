@@ -963,7 +963,7 @@ const OlderUnreconciledTransactionsBanner = () => {
             count: number,
             oldest_date: string
         }
-    }>("erpnext.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.get_older_unreconciled_transactions", {
+    }>("optimaerp.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.get_older_unreconciled_transactions", {
         bank_account: selectedBank?.name,
         from_date: dates.fromDate,
     }, undefined, {

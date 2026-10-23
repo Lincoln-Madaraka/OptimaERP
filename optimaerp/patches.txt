@@ -1,0 +1,526 @@
+[pre_model_sync]
+optimaerp.patches.v12_0.update_is_cancelled_field
+optimaerp.patches.v11_0.rename_production_order_to_work_order
+optimaerp.patches.v13_0.add_bin_unique_constraint
+optimaerp.patches.v11_0.refactor_naming_series
+optimaerp.patches.v11_0.refactor_autoname_naming
+optimaerp.patches.v14_0.change_is_subcontracted_fieldtype
+execute:frappe.reload_doc("accounts", "doctype", "POS Payment Method") #2020-05-28
+optimaerp.patches.v4_2.update_requested_and_ordered_qty #2021-03-31
+optimaerp.patches.v5_7.update_item_description_based_on_item_master
+optimaerp.patches.v4_2.repost_reserved_qty #2021-03-31
+optimaerp.patches.v8_1.removed_roles_from_gst_report_non_indian_account #16-08-2018
+optimaerp.patches.v10_0.fichier_des_ecritures_comptables_for_france
+optimaerp.patches.v10_0.rename_price_to_rate_in_pricing_rule
+optimaerp.patches.v10_0.set_currency_in_pricing_rule
+optimaerp.patches.v10_0.update_translatable_fields
+execute:frappe.delete_doc('DocType', 'Production Planning Tool', ignore_missing=True)
+optimaerp.patches.v11_0.rename_duplicate_item_code_values
+optimaerp.patches.v11_0.make_quality_inspection_template
+optimaerp.patches.v11_0.merge_land_unit_with_location
+optimaerp.patches.v11_0.add_index_on_nestedset_doctypes
+optimaerp.patches.v11_0.remove_modules_setup_page
+optimaerp.patches.v11_0.update_department_lft_rgt
+optimaerp.patches.v11_0.uom_conversion_data #30-06-2018
+optimaerp.patches.v11_0.update_account_type_in_party_type
+optimaerp.patches.v11_0.rename_supplier_type_to_supplier_group
+optimaerp.patches.v10_1.transfer_subscription_to_auto_repeat
+optimaerp.patches.v11_0.update_brand_in_item_price
+optimaerp.patches.v11_0.create_default_success_action
+optimaerp.patches.v11_0.rebuild_tree_for_company
+optimaerp.patches.v11_0.create_department_records_for_each_company
+optimaerp.patches.v11_0.make_location_from_warehouse
+optimaerp.patches.v11_0.make_asset_finance_book_against_old_entries
+optimaerp.patches.v11_0.check_buying_selling_in_currency_exchange
+optimaerp.patches.v11_0.move_item_defaults_to_child_table_for_multicompany #02-07-2018 #19-06-2019
+optimaerp.patches.v11_0.rename_overproduction_percent_field
+optimaerp.patches.v11_0.update_backflush_subcontract_rm_based_on_bom
+optimaerp.patches.v11_0.rename_members_with_naming_series #04-06-2018
+optimaerp.patches.v11_0.set_update_field_and_value_in_workflow_state
+optimaerp.patches.v11_0.update_total_qty_field
+optimaerp.patches.v11_0.update_sales_partner_type
+optimaerp.patches.v11_0.rename_asset_adjustment_doctype
+optimaerp.patches.v11_0.set_user_permissions_for_department
+optimaerp.patches.v11_0.hr_ux_cleanups
+optimaerp.patches.v11_0.set_department_for_doctypes
+optimaerp.patches.v11_0.update_allow_transfer_for_manufacture
+optimaerp.patches.v11_0.add_item_group_defaults
+optimaerp.patches.v11_0.add_expense_claim_default_account
+optimaerp.patches.v11_0.make_job_card
+optimaerp.patches.v11_0.add_default_dispatch_notification_template
+optimaerp.patches.v11_0.add_market_segments
+optimaerp.patches.v11_0.add_sales_stages
+execute:frappe.delete_doc_if_exists("Page", "sales-analytics")
+execute:frappe.delete_doc_if_exists("Page", "purchase-analytics")
+execute:frappe.delete_doc_if_exists("Page", "stock-analytics")
+execute:frappe.delete_doc_if_exists("Page", "production-analytics")
+optimaerp.patches.v10_0.item_barcode_childtable_migrate # 16-02-2019
+optimaerp.patches.v11_0.update_delivery_trip_status
+optimaerp.patches.v11_0.rename_bom_wo_fields
+optimaerp.patches.v11_0.renamed_from_to_fields_in_project
+optimaerp.patches.v11_1.setup_guardian_role
+execute:frappe.delete_doc('DocType', 'Notification Control')
+optimaerp.patches.v11_0.remove_barcodes_field_from_copy_fields_to_variants
+optimaerp.patches.v12_0.set_task_status
+optimaerp.patches.v11_0.make_italian_localization_fields # 26-03-2019
+optimaerp.patches.v12_0.add_item_name_in_work_orders
+optimaerp.patches.v12_0.update_pricing_rule_fields
+optimaerp.patches.v11_1.make_job_card_time_logs
+optimaerp.patches.v12_0.rename_pricing_rule_child_doctypes
+optimaerp.patches.v12_0.move_target_distribution_from_parent_to_child
+optimaerp.patches.v12_0.stock_entry_enhancements
+optimaerp.patches.v10_0.item_barcode_childtable_migrate # 16-02-2019 #25-06-2019
+optimaerp.patches.v12_0.make_item_manufacturer
+optimaerp.patches.v12_0.move_item_tax_to_item_tax_template
+optimaerp.patches.v11_1.set_variant_based_on
+optimaerp.patches.v11_1.woocommerce_set_creation_user
+execute:frappe.delete_doc("Report", "Inactive Items")
+optimaerp.patches.v11_1.delete_scheduling_tool
+optimaerp.patches.v12_0.rename_tolerance_fields
+execute:frappe.delete_doc_if_exists("Page", "support-analytics")
+optimaerp.patches.v12_0.remove_patient_medical_record_page
+optimaerp.patches.v11_1.move_customer_lead_to_dynamic_column
+optimaerp.patches.v11_1.set_default_action_for_quality_inspection
+optimaerp.patches.v11_1.delete_bom_browser
+optimaerp.patches.v11_1.set_missing_title_for_quotation
+optimaerp.patches.v11_1.update_bank_transaction_status
+optimaerp.patches.v11_1.renamed_delayed_item_report
+optimaerp.patches.v11_1.set_missing_opportunity_from
+optimaerp.patches.v12_0.set_quotation_status
+optimaerp.patches.v12_0.set_priority_for_support
+optimaerp.patches.v12_0.delete_priority_property_setter
+optimaerp.patches.v12_0.set_default_batch_size
+execute:frappe.delete_doc("DocType", "Project Task")
+optimaerp.patches.v11_1.update_default_supplier_in_item_defaults
+optimaerp.patches.v12_0.update_due_date_in_gle
+optimaerp.patches.v12_0.add_default_buying_selling_terms_in_company
+optimaerp.patches.v12_0.create_accounting_dimensions_in_missing_doctypes #2020-05-11
+optimaerp.patches.v11_1.set_status_for_material_request_type_manufacture
+optimaerp.patches.v12_0.move_plaid_settings_to_doctype
+execute:frappe.reload_doc('desk', 'doctype', 'dashboard_chart_link')
+execute:frappe.reload_doc('desk', 'doctype', 'dashboard')
+execute:frappe.reload_doc('desk', 'doctype', 'dashboard_chart_source')
+execute:frappe.reload_doc('desk', 'doctype', 'dashboard_chart')
+execute:frappe.reload_doc('desk', 'doctype', 'dashboard_chart_field')
+optimaerp.patches.v12_0.remove_bank_remittance_custom_fields
+optimaerp.patches.v12_0.move_credit_limit_to_customer_credit_limit
+optimaerp.patches.v12_0.add_variant_of_in_item_attribute_table
+optimaerp.patches.v12_0.rename_bank_account_field_in_journal_entry_account
+optimaerp.patches.v12_0.set_produced_qty_field_in_sales_order_for_work_order
+optimaerp.patches.v12_0.set_cwip_and_delete_asset_settings
+optimaerp.patches.v12_0.set_expense_account_in_landed_cost_voucher_taxes
+optimaerp.patches.v12_0.replace_accounting_with_accounts_in_home_settings
+optimaerp.patches.v12_0.set_automatically_process_deferred_accounting_in_accounts_settings
+optimaerp.patches.v12_0.set_payment_entry_status
+optimaerp.patches.v12_0.update_owner_fields_in_acc_dimension_custom_fields
+optimaerp.patches.v12_0.update_price_or_product_discount
+optimaerp.patches.v12_0.set_production_capacity_in_workstation
+optimaerp.patches.v12_0.set_employee_preferred_emails
+optimaerp.patches.v12_0.set_against_blanket_order_in_sales_and_purchase_order
+optimaerp.patches.v12_0.set_cost_center_in_child_table_of_expense_claim
+optimaerp.patches.v12_0.set_lead_title_field
+optimaerp.patches.v12_0.set_permission_einvoicing
+optimaerp.patches.v12_0.create_irs_1099_field_united_states
+optimaerp.patches.v12_0.move_bank_account_swift_number_to_bank
+optimaerp.patches.v12_0.rename_bank_reconciliation
+optimaerp.patches.v12_0.rename_bank_reconciliation_fields # 2020-01-22
+optimaerp.patches.v12_0.set_purchase_receipt_delivery_note_detail
+optimaerp.patches.v12_0.add_permission_in_lower_deduction
+optimaerp.patches.v12_0.set_received_qty_in_material_request_as_per_stock_uom
+optimaerp.patches.v12_0.rename_account_type_doctype
+optimaerp.patches.v12_0.recalculate_requested_qty_in_bin
+optimaerp.patches.v12_0.set_total_batch_quantity
+optimaerp.patches.v12_0.rename_mws_settings_fields
+optimaerp.patches.v12_0.set_updated_purpose_in_pick_list
+optimaerp.patches.v12_0.repost_stock_ledger_entries_for_target_warehouse
+optimaerp.patches.v12_0.update_end_date_and_status_in_email_campaign
+optimaerp.patches.v12_0.fix_quotation_expired_status
+optimaerp.patches.v12_0.rename_pos_closing_doctype
+optimaerp.patches.v13_0.replace_pos_payment_mode_table #2020-12-29
+execute:frappe.delete_doc_if_exists("Page", "appointment-analytic")
+execute:frappe.rename_doc("Desk Page", "Getting Started", "Home", force=True)
+optimaerp.patches.v12_0.unset_customer_supplier_based_on_type_of_item_price
+optimaerp.patches.v12_0.set_valid_till_date_in_supplier_quotation
+optimaerp.patches.v12_0.set_serial_no_status #2020-05-21
+optimaerp.patches.v12_0.update_price_list_currency_in_bom
+execute:frappe.reload_doctype('Dashboard')
+execute:frappe.reload_doc('desk', 'doctype', 'number_card_link')
+execute:frappe.delete_doc_if_exists('Dashboard', 'Accounts')
+optimaerp.patches.v13_0.update_actual_start_and_end_date_in_wo
+optimaerp.patches.v12_0.update_bom_in_so_mr
+execute:frappe.delete_doc("Report", "Department Analytics")
+optimaerp.patches.v12_0.update_uom_conversion_factor
+optimaerp.patches.v13_0.replace_pos_page_with_point_of_sale_page
+optimaerp.patches.v13_0.delete_old_purchase_reports
+optimaerp.patches.v12_0.set_italian_import_supplier_invoice_permissions
+optimaerp.patches.v13_0.update_subscription
+optimaerp.patches.v12_0.unhide_cost_center_field
+optimaerp.patches.v13_0.update_sla_enhancements
+optimaerp.patches.v13_0.update_deferred_settings
+optimaerp.patches.v12_0.set_multi_uom_in_rfq
+optimaerp.patches.v13_0.delete_old_sales_reports
+execute:frappe.delete_doc_if_exists("DocType", "Bank Reconciliation")
+execute:frappe.reload_doc("regional", "doctype", "e_invoice_settings")
+optimaerp.patches.v13_0.loyalty_points_entry_for_pos_invoice #22-07-2020
+optimaerp.patches.v12_0.fix_percent_complete_for_projects
+optimaerp.patches.v13_0.delete_report_requested_items_to_order
+optimaerp.patches.v12_0.update_item_tax_template_company
+optimaerp.patches.v13_0.move_branch_code_to_bank_account
+optimaerp.patches.v13_0.add_standard_navbar_items #2021-03-24
+optimaerp.patches.v13_0.stock_entry_enhancements
+optimaerp.patches.v12_0.rename_lost_reason_detail
+optimaerp.patches.v13_0.drop_razorpay_payload_column
+optimaerp.patches.v13_0.rename_issue_doctype_fields
+optimaerp.patches.v13_0.change_default_pos_print_format
+optimaerp.patches.v13_0.set_youtube_video_id
+optimaerp.patches.v13_0.set_app_name
+optimaerp.patches.v13_0.print_uom_after_quantity_patch
+optimaerp.patches.v13_0.set_payment_channel_in_payment_gateway_account
+execute:frappe.delete_doc("Report", "Quoted Item Comparison")
+optimaerp.patches.v13_0.update_member_email_address
+optimaerp.patches.v13_0.update_pos_closing_entry_in_merge_log
+optimaerp.patches.v13_0.add_po_to_global_search
+optimaerp.patches.v13_0.update_returned_qty_in_pr_dn
+optimaerp.patches.v13_0.create_uae_pos_invoice_fields
+optimaerp.patches.v13_0.update_project_template_tasks
+optimaerp.patches.v13_0.convert_qi_parameter_to_link_field
+optimaerp.patches.v13_0.add_naming_series_to_old_projects # 1-02-2021
+optimaerp.patches.v13_0.update_payment_terms_outstanding
+optimaerp.patches.v13_0.delete_old_bank_reconciliation_doctypes
+optimaerp.patches.v13_0.update_vehicle_no_reqd_condition
+optimaerp.patches.v13_0.rename_membership_settings_to_non_profit_settings
+optimaerp.patches.v13_0.setup_uae_vat_fields
+execute:frappe.db.set_value('System Settings', None, 'app_name', 'OptimaERP')
+optimaerp.patches.v12_0.purchase_receipt_status
+optimaerp.patches.v13_0.fix_non_unique_represents_company
+optimaerp.patches.v12_0.add_document_type_field_for_italy_einvoicing
+optimaerp.patches.v13_0.update_shipment_status
+optimaerp.patches.v13_0.remove_attribute_field_from_item_variant_setting
+optimaerp.patches.v13_0.set_pos_closing_as_failed
+optimaerp.patches.v13_0.update_timesheet_changes
+optimaerp.patches.v13_0.add_doctype_to_sla #14-06-2021
+optimaerp.patches.v13_0.bill_for_rejected_quantity_in_purchase_invoice
+optimaerp.patches.v13_0.rename_issue_status_hold_to_on_hold
+optimaerp.patches.v13_0.update_response_by_variance
+optimaerp.patches.v13_0.update_job_card_details
+optimaerp.patches.v13_0.add_missing_fg_item_for_stock_entry
+optimaerp.patches.v13_0.update_subscription_status_in_memberships
+optimaerp.patches.v13_0.update_amt_in_work_order_required_items
+optimaerp.patches.v13_0.delete_orphaned_tables
+optimaerp.patches.v13_0.update_tds_check_field #3
+optimaerp.patches.v13_0.add_custom_field_for_south_africa #2
+optimaerp.patches.v13_0.update_recipient_email_digest
+optimaerp.patches.v13_0.shopify_deprecation_warning
+optimaerp.patches.v13_0.remove_bad_selling_defaults
+optimaerp.patches.v13_0.trim_whitespace_from_serial_nos  # 16-01-2022
+optimaerp.patches.v13_0.migrate_stripe_api
+optimaerp.patches.v13_0.reset_clearance_date_for_intracompany_payment_entries
+execute:frappe.reload_doc("optimaerp_integrations", "doctype", "TaxJar Settings")
+execute:frappe.reload_doc("optimaerp_integrations", "doctype", "Product Tax Category")
+optimaerp.patches.v13_0.set_operation_time_based_on_operating_cost
+optimaerp.patches.v13_0.create_gst_payment_entry_fields #27-11-2021
+optimaerp.patches.v13_0.fix_invoice_statuses
+optimaerp.patches.v13_0.replace_supplier_item_group_with_party_specific_item
+optimaerp.patches.v13_0.update_dates_in_tax_withholding_category
+optimaerp.patches.v14_0.update_opportunity_currency_fields
+optimaerp.patches.v13_0.create_accounting_dimensions_in_pos_doctypes
+optimaerp.patches.v13_0.create_custom_field_for_finance_book
+optimaerp.patches.v13_0.modify_invalid_gain_loss_gl_entries #2
+optimaerp.patches.v13_0.fix_additional_cost_in_mfg_stock_entry
+optimaerp.patches.v13_0.set_status_in_maintenance_schedule_table
+optimaerp.patches.v13_0.enable_scheduler_job_for_item_reposting
+optimaerp.patches.v13_0.requeue_failed_reposts
+optimaerp.patches.v13_0.update_job_card_status
+optimaerp.patches.v13_0.enable_uoms
+optimaerp.patches.v12_0.update_production_plan_status
+optimaerp.patches.v13_0.healthcare_deprecation_warning
+optimaerp.patches.v13_0.item_naming_series_not_mandatory
+optimaerp.patches.v13_0.update_category_in_ltds_certificate
+optimaerp.patches.v13_0.update_maintenance_schedule_field_in_visit
+optimaerp.patches.v14_0.migrate_crm_settings
+optimaerp.patches.v13_0.wipe_serial_no_field_for_0_qty
+optimaerp.patches.v13_0.agriculture_deprecation_warning
+optimaerp.patches.v13_0.hospitality_deprecation_warning
+optimaerp.patches.v13_0.update_asset_quantity_field
+optimaerp.patches.v13_0.delete_bank_reconciliation_detail
+optimaerp.patches.v13_0.enable_provisional_accounting
+optimaerp.patches.v13_0.non_profit_deprecation_warning
+optimaerp.patches.v13_0.show_india_localisation_deprecation_warning
+optimaerp.patches.v13_0.show_hr_payroll_deprecation_warning
+optimaerp.patches.v13_0.reset_corrupt_defaults
+optimaerp.patches.v13_0.create_accounting_dimensions_for_asset_repair
+optimaerp.patches.v15_0.delete_taxjar_doctypes
+optimaerp.patches.v15_0.delete_ecommerce_doctypes
+optimaerp.patches.v14_0.update_reference_due_date_in_journal_entry
+optimaerp.patches.v15_0.saudi_depreciation_warning
+optimaerp.patches.v15_0.delete_saudi_doctypes
+optimaerp.patches.v14_0.show_loan_management_deprecation_warning
+optimaerp.patches.v14_0.clear_reconciliation_values_from_singles
+execute:frappe.rename_doc("Report", "TDS Payable Monthly", "Tax Withholding Details", force=True)
+optimaerp.patches.v14_0.update_proprietorship_to_individual
+optimaerp.patches.v15_0.rename_subcontracting_fields
+optimaerp.patches.v15_0.unset_incorrect_additional_discount_percentage
+optimaerp.patches.v16_0.convert_commission_rate_to_percent
+optimaerp.patches.v16_0.convert_hide_currency_symbol_to_check
+
+[post_model_sync]
+optimaerp.patches.v15_0.rename_gross_purchase_amount_to_net_purchase_amount
+optimaerp.patches.v15_0.create_asset_depreciation_schedules_from_assets
+execute:frappe.delete_doc_if_exists('Workspace', 'OptimaERP Integrations Settings')
+optimaerp.patches.v14_0.update_posting_datetime_and_dropped_indexes #22-02-2024
+optimaerp.patches.v14_0.rename_ongoing_status_in_sla_documents
+optimaerp.patches.v14_0.delete_shopify_doctypes
+optimaerp.patches.v14_0.delete_healthcare_doctypes
+optimaerp.patches.v14_0.delete_hub_doctypes
+optimaerp.patches.v14_0.delete_hospitality_doctypes # 20-01-2022
+optimaerp.patches.v14_0.delete_agriculture_doctypes # 15-06-2022
+optimaerp.patches.v14_0.delete_education_doctypes
+optimaerp.patches.v14_0.delete_datev_doctypes
+optimaerp.patches.v14_0.rearrange_company_fields
+optimaerp.patches.v13_0.update_sane_transfer_against
+optimaerp.patches.v14_0.migrate_cost_center_allocations
+optimaerp.patches.v13_0.update_reserved_qty_closed_wo
+optimaerp.patches.v13_0.update_exchange_rate_settings
+optimaerp.patches.v14_0.delete_amazon_mws_doctype
+optimaerp.patches.v13_0.set_work_order_qty_in_so_from_mr
+optimaerp.patches.v13_0.item_reposting_for_incorrect_sl_and_gl
+optimaerp.patches.v14_0.update_batch_valuation_flag
+optimaerp.patches.v14_0.delete_non_profit_doctypes
+optimaerp.patches.v13_0.set_return_against_in_pos_invoice_references
+optimaerp.patches.v13_0.remove_unknown_links_to_prod_plan_items # 24-03-2022
+optimaerp.patches.v13_0.change_default_item_manufacturer_fieldtype
+optimaerp.patches.v13_0.requeue_recoverable_reposts
+optimaerp.patches.v14_0.discount_accounting_separation
+optimaerp.patches.v13_0.create_accounting_dimensions_in_orders
+optimaerp.patches.v13_0.set_per_billed_in_return_delivery_note
+execute:frappe.delete_doc("DocType", "Naming Series")
+optimaerp.patches.v13_0.job_card_status_on_hold
+optimaerp.patches.v14_0.copy_is_subcontracted_value_to_is_old_subcontracting_flow
+optimaerp.patches.v14_0.crm_ux_cleanup
+optimaerp.patches.v14_0.migrate_existing_lead_notes_as_per_the_new_format
+optimaerp.patches.v14_0.remove_india_localisation # 14-07-2022
+optimaerp.patches.v13_0.fix_number_and_frequency_for_monthly_depreciation
+optimaerp.patches.v14_0.remove_hr_and_payroll_modules # 20-07-2022
+optimaerp.patches.v14_0.fix_crm_no_of_employees
+optimaerp.patches.v14_0.create_accounting_dimensions_in_subcontracting_doctypes
+optimaerp.patches.v14_0.fix_subcontracting_receipt_gl_entries
+optimaerp.patches.v13_0.drop_unused_sle_index_parts
+optimaerp.patches.v14_0.create_accounting_dimensions_for_asset_capitalization
+optimaerp.patches.v14_0.create_incoterms_and_migrate_shipment
+optimaerp.patches.v14_0.create_accounting_dimensions_for_payment_request
+optimaerp.patches.v14_0.update_entry_type_for_journal_entry
+optimaerp.patches.v14_0.change_autoname_for_tax_withheld_vouchers
+optimaerp.patches.v14_0.set_pick_list_status
+optimaerp.patches.v13_0.update_docs_link
+optimaerp.patches.v15_0.update_asset_value_for_manual_depr_entries
+optimaerp.patches.v15_0.update_gpa_and_ndb_for_assdeprsch
+optimaerp.patches.v14_0.create_accounting_dimensions_for_closing_balance
+optimaerp.patches.v14_0.set_period_start_end_date_in_pcv
+optimaerp.patches.v14_0.update_closing_balances #20-12-2024
+execute:frappe.db.set_single_value("Accounts Settings", "merge_similar_account_heads", 0)
+optimaerp.patches.v14_0.update_reference_type_in_journal_entry_accounts
+optimaerp.patches.v14_0.update_subscription_details # 23-07-2025
+execute:frappe.delete_doc("Report", "Tax Detail", force=True)
+optimaerp.patches.v15_0.enable_all_leads
+optimaerp.patches.v14_0.update_company_in_ldc
+optimaerp.patches.v14_0.set_packed_qty_in_draft_delivery_notes
+execute:frappe.delete_doc('DocType', 'Cash Flow Mapping Template Details', ignore_missing=True)
+execute:frappe.delete_doc('DocType', 'Cash Flow Mapping', ignore_missing=True)
+execute:frappe.delete_doc('DocType', 'Cash Flow Mapper', ignore_missing=True)
+execute:frappe.delete_doc('DocType', 'Cash Flow Mapping Template', ignore_missing=True)
+execute:frappe.delete_doc('DocType', 'Cash Flow Mapping Accounts', ignore_missing=True)
+optimaerp.patches.v14_0.cleanup_workspaces
+optimaerp.patches.v15_0.remove_loan_management_module #2023-07-03
+optimaerp.patches.v14_0.set_report_in_process_SOA
+optimaerp.buying.doctype.supplier.patches.migrate_supplier_portal_users
+execute:frappe.defaults.clear_default("fiscal_year")
+optimaerp.patches.v15_0.remove_exotel_integration
+optimaerp.patches.v14_0.single_to_multi_dunning
+execute:frappe.db.set_single_value('Selling Settings', 'allow_negative_rates_for_items', 0)
+optimaerp.patches.v15_0.correct_asset_value_if_je_with_workflow
+optimaerp.patches.v15_0.delete_woocommerce_settings_doctype
+optimaerp.patches.v14_0.migrate_deferred_accounts_to_item_defaults
+optimaerp.patches.v14_0.update_invoicing_period_in_subscription
+execute:frappe.delete_doc("Page", "welcome-to-optimaerp")
+optimaerp.patches.v15_0.migrate_payment_request_status
+optimaerp.patches.v15_0.delete_payment_gateway_doctypes
+optimaerp.patches.v14_0.create_accounting_dimensions_in_sales_order_item
+optimaerp.patches.v15_0.update_sre_from_voucher_details
+optimaerp.patches.v14_0.rename_over_order_allowance_field
+optimaerp.patches.v14_0.migrate_delivery_stop_lock_field
+optimaerp.patches.v14_0.add_default_for_repost_settings
+optimaerp.patches.v15_0.rename_daily_depreciation_to_depreciation_amount_based_on_num_days_in_month
+optimaerp.patches.v15_0.rename_depreciation_amount_based_on_num_days_in_month_to_daily_prorata_based
+optimaerp.patches.v15_0.set_reserved_stock_in_bin
+optimaerp.patches.v14_0.create_accounting_dimensions_in_supplier_quotation
+optimaerp.patches.v14_0.update_zero_asset_quantity_field
+execute:frappe.db.set_single_value("Buying Settings", "project_update_frequency", "Each Transaction")
+execute:frappe.db.set_default("date_format", frappe.db.get_single_value("System Settings", "date_format"))
+optimaerp.patches.v14_0.update_total_asset_cost_field
+optimaerp.patches.v15_0.create_advance_payment_status
+optimaerp.patches.v15_0.allow_on_submit_dimensions_for_repostable_doctypes #2025-06-19
+optimaerp.patches.v14_0.create_accounting_dimensions_in_reconciliation_tool
+optimaerp.patches.v14_0.update_flag_for_return_invoices #2024-03-22
+optimaerp.patches.v15_0.create_accounting_dimensions_in_payment_request
+optimaerp.patches.v14_0.update_pos_return_ledger_entries #2024-08-16
+optimaerp.patches.v15_0.create_advance_payment_ledger_records #2025-07-08
+# below migration patch should always run last
+optimaerp.patches.v14_0.migrate_gl_to_payment_ledger
+optimaerp.stock.doctype.delivery_note.patches.drop_unused_return_against_index # 2023-12-20
+optimaerp.patches.v14_0.set_maintain_stock_for_bom_item
+optimaerp.patches.v15_0.delete_orphaned_asset_movement_item_records
+optimaerp.patches.v15_0.fix_debit_credit_in_transaction_currency
+optimaerp.patches.v15_0.rename_purchase_receipt_amount_to_purchase_amount
+optimaerp.patches.v14_0.enable_set_priority_for_pricing_rules #1
+optimaerp.patches.v15_0.rename_number_of_depreciations_booked_to_opening_booked_depreciations
+optimaerp.patches.v15_0.add_default_operations
+optimaerp.patches.v15_0.enable_old_serial_batch_fields
+optimaerp.patches.v15_0.update_warehouse_field_in_asset_repair_consumed_item_doctype
+optimaerp.patches.v15_0.update_asset_repair_field_in_stock_entry
+optimaerp.patches.v15_0.update_total_number_of_booked_depreciations
+optimaerp.patches.v15_0.do_not_use_batchwise_valuation
+optimaerp.patches.v15_0.update_invoice_remarks
+optimaerp.patches.v14_0.update_reports_with_range
+optimaerp.patches.v15_0.drop_index_posting_datetime_from_sle
+optimaerp.patches.v15_0.add_disassembly_order_stock_entry_type #1
+optimaerp.patches.v15_0.set_standard_stock_entry_type
+optimaerp.patches.v15_0.set_difference_amount_in_asset_value_adjustment
+optimaerp.patches.v15_0.link_purchase_item_to_asset_doc
+optimaerp.patches.v15_0.migrate_to_utm_analytics
+optimaerp.patches.v15_0.update_sub_voucher_type_in_gl_entries
+optimaerp.patches.v15_0.update_task_assignee_email_field_in_asset_maintenance_log
+optimaerp.patches.v14_0.update_currency_exchange_settings_for_frankfurter
+optimaerp.patches.v15_0.set_is_exchange_gain_loss_in_payment_entry_deductions
+optimaerp.patches.v14_0.update_stock_uom_in_work_order_item
+optimaerp.patches.v15_0.enable_allow_existing_serial_no
+optimaerp.patches.v15_0.update_cc_in_process_statement_of_accounts
+optimaerp.patches.v15_0.refactor_closing_stock_balance #5
+optimaerp.patches.v15_0.update_asset_status_to_work_in_progress
+optimaerp.patches.v15_0.rename_manufacturing_settings_field
+optimaerp.patches.v15_0.sync_auto_reconcile_config #2025-08-26
+execute:frappe.db.set_single_value("Accounts Settings", "exchange_gain_loss_posting_date", "Payment")
+optimaerp.patches.v14_0.disable_add_row_in_gross_profit
+optimaerp.patches.v14_0.update_posting_datetime
+optimaerp.patches.v15_0.rename_field_from_rate_difference_to_amount_difference
+optimaerp.patches.v15_0.recalculate_amount_difference_field #2025-03-18
+optimaerp.patches.v15_0.rename_sla_fields #2025-03-12
+optimaerp.stock.doctype.stock_ledger_entry.patches.ensure_sle_indexes
+optimaerp.patches.v15_0.update_query_report
+optimaerp.patches.v15_0.set_purchase_receipt_row_item_to_capitalization_stock_item
+optimaerp.patches.v15_0.update_payment_schedule_fields_in_invoices
+optimaerp.patches.v15_0.rename_group_by_to_categorize_by
+execute:frappe.db.set_single_value("Accounts Settings", "receivable_payable_fetch_method", "Buffered Cursor")
+optimaerp.patches.v14_0.set_update_price_list_based_on
+optimaerp.patches.v15_0.update_journal_entry_type
+optimaerp.patches.v15_0.add_bank_transaction_as_journal_entry_reference
+optimaerp.patches.v15_0.set_grand_total_to_default_mop
+execute:frappe.db.set_single_value("Accounts Settings", "use_legacy_budget_controller", False)
+optimaerp.patches.v15_0.set_cancelled_status_to_cancelled_pos_invoice
+optimaerp.patches.v15_0.rename_group_by_to_categorize_by_in_custom_reports
+optimaerp.patches.v15_0.remove_agriculture_roles
+optimaerp.patches.v14_0.update_full_name_in_contract
+optimaerp.patches.v15_0.drop_sle_indexes #2025-09-18
+optimaerp.patches.v15_0.update_pick_list_fields
+execute:frappe.db.set_single_value("Accounts Settings", "confirm_before_resetting_posting_date", 1)
+optimaerp.patches.v15_0.rename_pos_closing_entry_fields #2025-06-13
+optimaerp.patches.v15_0.update_pegged_currencies
+optimaerp.patches.v15_0.set_status_cancelled_on_cancelled_pos_opening_entry_and_pos_closing_entry
+optimaerp.patches.v15_0.set_company_on_pos_inv_merge_log
+optimaerp.patches.v15_0.update_payment_ledger_entries_against_advance_doctypes
+optimaerp.patches.v15_0.rename_price_list_to_buying_price_list
+optimaerp.patches.v15_0.repost_gl_entries_with_no_account_subcontracting #2025-08-04
+optimaerp.patches.v15_0.patch_missing_buying_price_list_in_material_request
+optimaerp.patches.v15_0.remove_sales_partner_from_consolidated_sales_invoice
+optimaerp.patches.v15_0.update_uae_zero_rated_fetch
+optimaerp.patches.v15_0.add_company_payment_gateway_account
+optimaerp.patches.v16_0.set_invoice_type_in_pos_settings
+optimaerp.patches.v15_0.update_fieldname_in_accounting_dimension_filter
+optimaerp.patches.v16_0.make_workstation_operating_components #1
+optimaerp.patches.v16_0.set_reporting_currency
+optimaerp.patches.v16_0.set_posting_datetime_for_sabb_and_drop_indexes
+optimaerp.patches.v16_0.update_serial_no_reference_name
+optimaerp.patches.v16_0.update_account_categories_for_existing_accounts
+optimaerp.patches.v16_0.create_company_custom_fields
+optimaerp.patches.v16_0.rename_subcontracted_quantity
+optimaerp.patches.v16_0.add_new_stock_entry_types
+optimaerp.patches.v15_0.set_asset_status_if_not_already_set
+optimaerp.patches.v15_0.toggle_legacy_controller_for_period_closing
+optimaerp.patches.v16_0.update_serial_batch_entries #11-01-2026 10:00:00
+optimaerp.patches.v16_0.set_company_wise_warehouses
+optimaerp.patches.v16_0.set_valuation_method_on_companies
+optimaerp.patches.v15_0.migrate_old_item_wise_tax_detail_data_to_table
+optimaerp.patches.v16_0.migrate_budget_records_to_new_structure
+optimaerp.patches.v16_0.update_currency_exchange_settings_for_frankfurter #2025-12-11
+optimaerp.patches.v16_0.migrate_account_freezing_settings_to_company
+optimaerp.patches.v16_0.populate_budget_distribution_total
+optimaerp.patches.v16_0.set_mr_picked_qty
+optimaerp.patches.v16_0.update_tax_withholding_field_in_payment_entry
+optimaerp.patches.v16_0.migrate_tax_withholding_data
+optimaerp.patches.v16_0.update_corrected_cancelled_status
+optimaerp.patches.v16_0.fix_barcode_typo
+optimaerp.patches.v16_0.add_accounting_dimensions_to_journal_template_accounts
+optimaerp.patches.v16_0.set_post_change_gl_entries_on_pos_settings
+optimaerp.patches.v15_0.create_accounting_dimensions_in_advance_taxes_and_charges
+execute:frappe.delete_doc_if_exists("Workspace Sidebar", "Opening & Closing")
+optimaerp.patches.v16_0.migrate_transaction_deletion_task_flags_to_status # 2
+optimaerp.patches.v16_0.set_ordered_qty_in_quotation_item
+optimaerp.patches.v16_0.update_company_custom_field_in_bin
+optimaerp.patches.v15_0.replace_http_with_https_in_sales_partner
+optimaerp.patches.v16_0.migrate_asset_type_checkboxes_to_select
+optimaerp.patches.v15_0.delete_quotation_lost_record_detail
+optimaerp.patches.v16_0.add_portal_redirects
+optimaerp.patches.v16_0.update_order_qty_and_requested_qty_based_on_mr_and_po
+optimaerp.patches.v16_0.complete_onboarding_steps_for_older_sites #2
+optimaerp.patches.v16_0.enable_serial_batch_setting
+optimaerp.patches.v16_0.fix_titles
+optimaerp.patches.v16_0.co_by_product_patch
+optimaerp.patches.v16_0.update_requested_qty_packed_item
+optimaerp.patches.v16_0.remove_payables_receivables_workspace
+optimaerp.patches.v16_0.depends_on_inv_dimensions
+optimaerp.patches.v16_0.uom_category
+optimaerp.patches.v16_0.merge_repost_settings_to_accounts_settings
+optimaerp.patches.v16_0.set_root_type_in_account_categories
+optimaerp.patches.v16_0.scr_inv_dimension
+optimaerp.patches.v16_0.packed_item_inv_dimen
+optimaerp.patches.v16_0.set_not_applicable_on_german_item_tax_templates
+optimaerp.patches.v16_0.set_default_letter_head_for_doctype_and_report
+optimaerp.patches.v16_0.clear_procedures_from_receivable_report
+optimaerp.patches.v16_0.migrate_address_contact_custom_fields
+optimaerp.patches.v16_0.rename_secondary_item_type_field
+optimaerp.patches.v16_0.submit_existing_product_bundles #1
+optimaerp.patches.v16_0.migrate_subscription_generate_invoice_at
+optimaerp.patches.v16_0.rename_subscription_billing_period_fields
+optimaerp.patches.v16_0.drop_redundant_serial_no_index_from_sabb
+optimaerp.patches.v16_0.set_default_close_opportunity_after_days
+execute:frappe.db.set_single_value("Accounts Settings", "pcv_job_timeout", 3600)
+optimaerp.patches.v16_0.backfill_pick_list_transferred_qty
+optimaerp.patches.v16_0.create_shop_floor_roles
+optimaerp.patches.v15_0.backfill_sla_link_filters_on_custom_field
+optimaerp.patches.v15_0.backfill_sla_link_filters_on_docfield
+optimaerp.patches.v16_0.crm_settings_handle_allowed_users_for_frappe_crm
+optimaerp.patches.v16_0.create_accounting_dimensions_in_landed_cost_taxes_and_charges
+optimaerp.patches.v16_0.access_control_for_project_users
+optimaerp.patches.v16_0.enable_book_stock_expense_gl_entries
+execute:frappe.db.set_single_value("Stock Settings", "use_inline_serial_batch_editor", 0)
+optimaerp.patches.v16_0.recalculate_bins_for_production_plan_items
+optimaerp.patches.v16_0.rename_ar_ap_ageing_filter
+optimaerp.patches.v16_0.fix_subcontracting_titles
+optimaerp.patches.v16_0.move_warehouse_defaults_to_company
+optimaerp.patches.v16_0.backfill_repost_accounting_ledger_status
+optimaerp.patches.v16_0.merge_seeded_item_group_root
+optimaerp.patches.v16_0.set_stock_uom_in_job_card
+optimaerp.patches.v16_0.set_work_order_requested_and_picked_qty
+optimaerp.patches.v16_0.rename_italy_customer_name_fields
+optimaerp.patches.v16_0.recalculate_purchase_receipt_billing_status
+optimaerp.patches.v16_0.recalculate_mixed_purchase_receipt_billing_status
+optimaerp.patches.v16_0.add_currency_to_blanket_orders
+optimaerp.patches.v16_0.remove_frappe_crm_custom_fields
+optimaerp.patches.v16_0.add_batch_split_stock_entry_type
+optimaerp.patches.v16_0.add_transaction_roles_to_sms_settings
+optimaerp.patches.v16_0.set_secondary_item_valuation_type
+optimaerp.patches.v16_0.append_fieldname_to_pos_search_fields
+optimaerp.patches.v16_0.set_supplier_quotation_order_status
+optimaerp.patches.v16_0.recalculate_holiday_list_totals
+optimaerp.patches.v16_0.recalculate_returned_delivery_note_billing_status
+optimaerp.patches.v16_0.rename_component_cost_valuation_type
+optimaerp.patches.v16_0.set_app_logos

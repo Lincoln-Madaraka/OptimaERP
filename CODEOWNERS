@@ -3,22 +3,22 @@
 # These owners will be the default owners for everything in
 # the repo. Unless a later match takes precedence,
 
-erpnext/accounts/               @ruthra-kumar
-erpnext/assets/                 @khushi8112
-erpnext/regional                @ruthra-kumar
-erpnext/selling                 @ruthra-kumar
+optimaerp/accounts/               @ruthra-kumar
+optimaerp/assets/                 @khushi8112
+optimaerp/regional                @ruthra-kumar
+optimaerp/selling                 @ruthra-kumar
 banking/                        @nikkothari22
 
-erpnext/buying/                 @rohitwaghchaure @mihir-kandoi
-erpnext/maintenance/            @rohitwaghchaure @mihir-kandoi
-erpnext/manufacturing/          @rohitwaghchaure @mihir-kandoi
-erpnext/quality_management/     @rohitwaghchaure @mihir-kandoi
-erpnext/stock/                  @rohitwaghchaure @mihir-kandoi
-erpnext/subcontracting/         @mihir-kandoi
-erpnext/projects/               @nishkagosalia
+optimaerp/buying/                 @rohitwaghchaure @mihir-kandoi
+optimaerp/maintenance/            @rohitwaghchaure @mihir-kandoi
+optimaerp/manufacturing/          @rohitwaghchaure @mihir-kandoi
+optimaerp/quality_management/     @rohitwaghchaure @mihir-kandoi
+optimaerp/stock/                  @rohitwaghchaure @mihir-kandoi
+optimaerp/subcontracting/         @mihir-kandoi
+optimaerp/projects/               @nishkagosalia
 
-erpnext/controllers/            @ruthra-kumar @rohitwaghchaure @mihir-kandoi
-erpnext/patches/                @ruthra-kumar @rohitwaghchaure @mihir-kandoi
+optimaerp/controllers/            @ruthra-kumar @rohitwaghchaure @mihir-kandoi
+optimaerp/patches/                @ruthra-kumar @rohitwaghchaure @mihir-kandoi
 
 .github/                        @ruthra-kumar @mihir-kandoi
 pyproject.toml                  @ruthra-kumar

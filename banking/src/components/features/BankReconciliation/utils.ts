@@ -33,7 +33,7 @@ export const useGetAccountOpeningBalance = () => {
 
     }, [companyID, bankAccount?.name, dates.fromDate])
 
-    return useFrappeGetCall('erpnext.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.get_account_balance', args, undefined, {
+    return useFrappeGetCall('optimaerp.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.get_account_balance', args, undefined, {
         revalidateOnFocus: false
     })
 }
@@ -55,7 +55,7 @@ export const useGetAccountClosingBalance = () => {
 
     }, [companyID, bankAccount?.name, dates.toDate])
 
-    return useFrappeGetCall('erpnext.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.get_account_balance', args,
+    return useFrappeGetCall('optimaerp.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.get_account_balance', args,
         `bank-reconciliation-account-closing-balance-${bankAccount?.name}-${dates.toDate}`,
         {
             revalidateOnFocus: false
@@ -72,7 +72,7 @@ export const useGetAccountClosingBalanceAsPerStatement = (swrConfig: SWRConfigur
     const dates = useAtomValue(bankRecDateAtom)
     const bankAccount = useAtomValue(selectedBankAccountAtom)
 
-    return useFrappeGetCall<{ message: { balance: number, date?: string } }>("erpnext.accounts.doctype.bank_account.bank_account.get_closing_balance_as_per_statement", {
+    return useFrappeGetCall<{ message: { balance: number, date?: string } }>("optimaerp.accounts.doctype.bank_account.bank_account.get_closing_balance_as_per_statement", {
         bank_account: bankAccount?.name,
         date: dates.toDate
     }, `bank-reconciliation-account-closing-balance-as-per-statement-${bankAccount?.name}-${dates.toDate}`, {
@@ -87,7 +87,7 @@ export type UnreconciledTransaction = Pick<BankTransaction, 'name' | 'matched_tr
 export const useGetUnreconciledTransactions = () => {
     const bankAccount = useAtomValue(selectedBankAccountAtom)
     const dates = useAtomValue(bankRecDateAtom)
-    return useFrappeGetCall<{ message: UnreconciledTransaction[] }>('erpnext.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.get_bank_transactions', {
+    return useFrappeGetCall<{ message: UnreconciledTransaction[] }>('optimaerp.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.get_bank_transactions', {
         bank_account: bankAccount?.name,
         from_date: dates.fromDate,
         to_date: dates.toDate
@@ -113,7 +113,7 @@ export interface LinkedPayment {
 export const useGetBankTransactions = () => {
     const bankAccount = useAtomValue(selectedBankAccountAtom)
     const dates = useAtomValue(bankRecDateAtom)
-    return useFrappeGetCall<{ message: BankTransaction[] }>('erpnext.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.get_bank_transactions', {
+    return useFrappeGetCall<{ message: BankTransaction[] }>('optimaerp.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.get_bank_transactions', {
         bank_account: bankAccount?.name,
         from_date: dates.fromDate,
         to_date: dates.toDate,
@@ -128,7 +128,7 @@ export const useGetVouchersForTransaction = (transaction: UnreconciledTransactio
 
     const matchFilters = useAtomValue(bankRecMatchFilters)
 
-    return useFrappeGetCall<{ message: LinkedPayment[] }>('erpnext.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.get_linked_payments', {
+    return useFrappeGetCall<{ message: LinkedPayment[] }>('optimaerp.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.get_linked_payments', {
         bank_transaction_name: transaction.name,
         document_types: matchFilters ?? ['payment_entry', 'journal_entry'],
         from_date: dates.fromDate,
@@ -220,7 +220,7 @@ export const useRefreshUnreconciledTransactions = () => {
 
 export const useReconcileTransaction = () => {
 
-    const { call, loading } = useFrappePostCall<{ message: BankTransaction }>('erpnext.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.reconcile_vouchers')
+    const { call, loading } = useFrappePostCall<{ message: BankTransaction }>('optimaerp.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.reconcile_vouchers')
 
     const onReconcileTransaction = useRefreshUnreconciledTransactions()
 
@@ -309,7 +309,7 @@ export const useGetBankAccounts = (onSuccess?: (data?: Omit<SelectedBank, 'logo'
 
     const company = useCurrentCompany()
 
-    const { data, isLoading, error } = useFrappeGetCall<{ message: BankAccountWithCurrency[] }>('erpnext.accounts.doctype.bank_account.bank_account.get_list', {
+    const { data, isLoading, error } = useFrappeGetCall<{ message: BankAccountWithCurrency[] }>('optimaerp.accounts.doctype.bank_account.bank_account.get_list', {
         company: company
     }, undefined, {
         revalidateOnFocus: false,

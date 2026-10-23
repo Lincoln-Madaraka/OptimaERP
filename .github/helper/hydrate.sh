@@ -9,14 +9,14 @@
 #
 set -e
 
-ci_user="${ERPNEXT_CI_USER:-frappe}"
+ci_user="${OPTIMAERP_CI_USER:-frappe}"
 db_host="${DB_HOST:-127.0.0.1}"
 
 # Re-exec as the ci user (uid 1001) so bench/cache ownership matches the artifact, same as
 # install.sh. The workflow untar'd as root with -p, so the files are already owned by ci.
 if [ "$(id -u)" = "0" ] && [ "${SKIP_SYSTEM_SETUP:-0}" = "1" ] && [ "$ci_user" != "root" ]; then
     exec su -m "$ci_user" -s /bin/bash -c \
-        "ERPNEXT_CI_USER='$ci_user' DB_HOST='$db_host' DB='${DB:-}' bash '$0'"
+        "OPTIMAERP_CI_USER='$ci_user' DB_HOST='$db_host' DB='${DB:-}' bash '$0'"
 fi
 
 cd ~/frappe-bench

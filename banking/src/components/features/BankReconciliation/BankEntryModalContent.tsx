@@ -63,7 +63,7 @@ const BulkBankEntryForm = ({ selectedTransactions }: { selectedTransactions: Unr
         }
     })
 
-    const { call, loading, error } = useFrappePostCall<{ message: { transaction: BankTransaction, journal_entry: JournalEntry }[] }>('erpnext.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.create_bulk_bank_entry_and_reconcile')
+    const { call, loading, error } = useFrappePostCall<{ message: { transaction: BankTransaction, journal_entry: JournalEntry }[] }>('optimaerp.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.create_bulk_bank_entry_and_reconcile')
 
     const onReconcile = useRefreshUnreconciledTransactions()
     const addToActionLog = useUpdateActionLog()
@@ -255,7 +255,7 @@ const BankEntryForm = ({ selectedTransaction }: { selectedTransaction: Unreconci
 
     const onReconcile = useRefreshUnreconciledTransactions()
 
-    const { call: createBankEntry, loading, error, isCompleted } = useFrappePostCall<{ message: { transaction: BankTransaction, journal_entry: JournalEntry } }>('erpnext.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.create_bank_entry_and_reconcile')
+    const { call: createBankEntry, loading, error, isCompleted } = useFrappePostCall<{ message: { transaction: BankTransaction, journal_entry: JournalEntry } }>('optimaerp.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.create_bank_entry_and_reconcile')
 
     const setBankRecUnreconcileModalAtom = useSetAtom(bankRecUnreconcileModalAtom)
     const addToActionLog = useUpdateActionLog()
@@ -429,7 +429,7 @@ const Entries = ({ company, isWithdrawal, currency }: { company: string, isWithd
             if (partyMapRef.current[value]) {
                 setValue(`entries.${index}.account`, partyMapRef.current[value])
             } else {
-                call.get('erpnext.accounts.party.get_party_account', {
+                call.get('optimaerp.accounts.party.get_party_account', {
                     party: value,
                     party_type: getValues(`entries.${index}.party_type`),
                     company: company

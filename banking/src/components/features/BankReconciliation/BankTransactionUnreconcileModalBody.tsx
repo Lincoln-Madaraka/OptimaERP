@@ -23,7 +23,7 @@ const BankTransactionUnreconcileModalBody = () => {
 
 	const { data: transaction, error, isLoading } = useFrappeGetDoc<BankTransaction>('Bank Transaction', unreconcileModal)
 
-	const { call, loading, error: unreconcileError } = useFrappePostCall('erpnext.accounts.doctype.bank_transaction.bank_transaction.unreconcile_transaction')
+	const { call, loading, error: unreconcileError } = useFrappePostCall('optimaerp.accounts.doctype.bank_transaction.bank_transaction.unreconcile_transaction')
 
 	const onUnreconcile = (event: React.MouseEvent<HTMLButtonElement>) => {
 		call({

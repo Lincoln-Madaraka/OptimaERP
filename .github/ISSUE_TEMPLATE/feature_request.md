@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea or enhancement for ERPNext
+about: Suggest an idea or enhancement for OptimaERP
 title: ''
 labels: feature-request
 assignees: ''
@@ -8,9 +8,9 @@ assignees: ''
 ---
 
 <!--
-Welcome to ERPNext issue tracker! Before creating an issue, please heed the following:
+Welcome to OptimaERP issue tracker! Before creating an issue, please heed the following:
 
-1. This tracker should only be used to report bugs and request features / enhancements to ERPNext
+1. This tracker should only be used to report bugs and request features / enhancements to OptimaERP
     - For questions and general support, checkout the manual https://docs.erpnext.com or use https://discuss.frappe.io/c/erpnext/6
 2. Use the search function before creating a new issue. Duplicates will be closed and directed to
    the original discussion.
@@ -20,9 +20,9 @@ Welcome to ERPNext issue tracker! Before creating an issue, please heed the foll
 Please keep in mind that we get many requests and we can't possibly work on all of them, we prioritize development based on the goals of the product and organization. Feature requests are still welcome as it helps us in research when we do decide to work on the requested feature. 
 
 If you're in urgent need of a feature, please try the following channels to get paid developments done quickly:
-1. Certified ERPNext partners: https://erpnext.com/partners 
-2. Developer community on ERPNext forums: https://discuss.frappe.io/c/framework/5  
-3. Telegram group for ERPNext/Frappe development work: https://t.me/erpnext_opps 
+1. Certified OptimaERP partners: https://erpnext.com/partners 
+2. Developer community on OptimaERP forums: https://discuss.frappe.io/c/framework/5  
+3. Telegram group for OptimaERP/Frappe development work: https://t.me/erpnext_opps 
 
 -->
 ## Before Submitting
@@ -49,7 +49,7 @@ A clear and concise description of any alternative solutions or features you've 
 Add any other context or screenshots about the feature request here.
 
 **Environment**
-- ERPNext Version: <!-- Find this in Help > About, e.g. v15.12.0 -->
+- OptimaERP Version: <!-- Find this in Help > About, e.g. v15.12.0 -->
 - Frappe Version: <!-- Find this in Help > About, e.g. v15.10.0 -->
-- Deployment: <!-- Frappe Cloud / Self-hosted / ERPNext Cloud -->
+- Deployment: <!-- Frappe Cloud / Self-hosted / OptimaERP Cloud -->
 

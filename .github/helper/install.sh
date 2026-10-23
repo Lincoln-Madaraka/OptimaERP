@@ -38,7 +38,7 @@ githubbranch=${GITHUB_BASE_REF:-${GITHUB_REF##*/}}
 frappeuser=${FRAPPE_USER:-"frappe"}
 frappecommitish=${FRAPPE_BRANCH:-}
 
-# A stacked pull request targets another erpnext branch, which has no counterpart in frappe.
+# A stacked pull request targets another optimaerp branch, which has no counterpart in frappe.
 # Fall back to develop so the bench is still installed. An explicit FRAPPE_BRANCH is trusted as
 # given, since it can be a commit sha rather than a branch.
 if [ -z "$frappecommitish" ]; then
@@ -63,7 +63,7 @@ wkhtmltox_deb=${WKHTMLTOX_DEB:-"/tmp/wkhtmltox.deb"}
 bench_cache_dir=${BENCH_CACHE_DIR:-}
 
 run_as_ci_user_if_needed() {
-    if [ "$(id -u)" != "0" ] || [ "${SKIP_SYSTEM_SETUP:-0}" != "1" ] || [ "${ERPNEXT_CI_NON_ROOT:-0}" = "1" ]; then
+    if [ "$(id -u)" != "0" ] || [ "${SKIP_SYSTEM_SETUP:-0}" != "1" ] || [ "${OPTIMAERP_CI_NON_ROOT:-0}" = "1" ]; then
         return
     fi
 
@@ -83,7 +83,7 @@ run_as_ci_user_if_needed() {
         apt-get install -y --no-install-recommends "${missing_packages[@]}"
     fi
 
-    local ci_user="${ERPNEXT_CI_USER:-frappe}"
+    local ci_user="${OPTIMAERP_CI_USER:-frappe}"
 
     if ! id "$ci_user" >/dev/null 2>&1; then
         useradd --home-dir "$HOME" --no-create-home --shell /bin/bash "$ci_user"
@@ -112,7 +112,7 @@ run_as_ci_user_if_needed() {
     mkdir -p "${ci_dirs[@]}" "$HOME/.yarn"
     chown "$ci_user:$ci_user" "${ci_dirs[@]}" "$HOME/.yarn"
 
-    export ERPNEXT_CI_NON_ROOT=1
+    export OPTIMAERP_CI_NON_ROOT=1
     exec su -m "$ci_user" -s /bin/bash -c "cd '$HOME' && bash '$GITHUB_WORKSPACE/.github/helper/install.sh'"
 }
 
@@ -357,12 +357,12 @@ cd ~/frappe-bench || exit
 
 run_ci_step "Get payments app" bench get-app payments --branch develop
 
-# Opt-in: skip building erpnext's frontend assets. Server tests don't need them, but PDF
+# Opt-in: skip building optimaerp's frontend assets. Server tests don't need them, but PDF
 # tests (print formats) do — they pass only if the PDF renderer ignores missing assets.
-# Enable with CI_SKIP_ERPNEXT_ASSETS=1 to test; if PDF tests fail, unset it.
-erpnext_get_app_args=()
-if [ "${CI_SKIP_ERPNEXT_ASSETS:-0}" = "1" ]; then erpnext_get_app_args=(--skip-assets); fi
-run_ci_step "Get erpnext app" bench get-app erpnext "${GITHUB_WORKSPACE}" "${erpnext_get_app_args[@]}"
+# Enable with CI_SKIP_OPTIMAERP_ASSETS=1 to test; if PDF tests fail, unset it.
+optimaerp_get_app_args=()
+if [ "${CI_SKIP_OPTIMAERP_ASSETS:-0}" = "1" ]; then optimaerp_get_app_args=(--skip-assets); fi
+run_ci_step "Get optimaerp app" bench get-app optimaerp "${GITHUB_WORKSPACE}" "${optimaerp_get_app_args[@]}"
 
 if [ "$TYPE" == "server" ]; then run_ci_step "Setup dev requirements" bench setup requirements --dev; fi
 

@@ -1,5 +1,5 @@
 [project]
-name = "erpnext"
+name = "optimaerp"
 authors = [
     { name = "Frappe Technologies Pvt Ltd", email = "developers@frappe.io"}
 ]
@@ -38,7 +38,7 @@ build-backend = "flit_core.buildapi"
 [tool.frappe.testing.function_type_validation]
 max_module_depth = 1
 skip_namespaces = [
-    "erpnext.deprecation_dumpster",
+    "optimaerp.deprecation_dumpster",
 ]
 
 [tool.bench.frappe-dependencies]
@@ -46,8 +46,8 @@ frappe = ">=17.0.0-dev,<18.0.0"
 
 [tool.bench.assets]
 build_dir = "./banking"
-out_dir = "../erpnext/public/banking"
-index_html_path = "../erpnext/www/banking.html"
+out_dir = "../optimaerp/public/banking"
+index_html_path = "../optimaerp/www/banking.html"
 
 [tool.ruff]
 line-length = 110

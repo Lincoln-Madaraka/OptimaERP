@@ -19,6 +19,6 @@ rules:
         ...
         super().tearDown()
         ...
-  message: ERPNextTestSuite forces rollback on each tearDown, which ensures idempotency. Don't override tearDown.
+  message: OptimaERPTestSuite forces rollback on each tearDown, which ensures idempotency. Don't override tearDown.
   languages: [python]
   severity: ERROR

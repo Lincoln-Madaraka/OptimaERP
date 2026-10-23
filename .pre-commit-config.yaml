@@ -8,7 +8,7 @@ repos:
     rev: v4.3.0
     hooks:
       - id: trailing-whitespace
-        files: "erpnext.*"
+        files: "optimaerp.*"
         exclude: ".*json$|.*txt$|.*csv|.*md"
       - id: check-yaml
       - id: no-commit-to-branch
@@ -28,11 +28,11 @@ repos:
         # Ignore any files that might contain jinja / bundles
         exclude: |
             (?x)^(
-                erpnext/public/dist/.*|
+                optimaerp/public/dist/.*|
                 cypress/.*|
                 .*node_modules.*|
                 .*boilerplate.*|
-                erpnext/templates/includes/.*
+                optimaerp/templates/includes/.*
             )$
 
   - repo: https://github.com/pre-commit/mirrors-eslint
@@ -44,12 +44,12 @@ repos:
         # Ignore any files that might contain jinja / bundles
         exclude: |
             (?x)^(
-                erpnext/public/dist/.*|
+                optimaerp/public/dist/.*|
                 cypress/.*|
                 .*node_modules.*|
                 .*boilerplate.*|
-                erpnext/templates/pages/order.js|
-                erpnext/templates/includes/.*
+                optimaerp/templates/pages/order.js|
+                optimaerp/templates/includes/.*
             )$
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
@@ -72,10 +72,10 @@ repos:
         description: "Flags MySQL-only SQL that breaks on Postgres; the label-gated PG test job is the backstop for semantic divergences."
         entry: .github/helper/postgres_compat.py
         language: script
-        files: ^erpnext/.*\.py$
+        files: ^optimaerp/.*\.py$
         # patches/ are historical, version-gated migrations (skipped on fresh Postgres installs);
         # out of scope for the always-on gate.
-        exclude: ^erpnext/patches/
+        exclude: ^optimaerp/patches/
 
 ci:
     autoupdate_schedule: weekly

@@ -1,5 +1,5 @@
-**/setup/setup_wizard/data/uom_data.json,erpnext.gettext.extractors.uom_data.extract
-**/setup/doctype/incoterm/incoterms.csv,erpnext.gettext.extractors.incoterms.extract
-**/setup/setup_wizard/data/*.txt,erpnext.gettext.extractors.lines_from_txt_file.extract
+**/setup/setup_wizard/data/uom_data.json,optimaerp.gettext.extractors.uom_data.extract
+**/setup/doctype/incoterm/incoterms.csv,optimaerp.gettext.extractors.incoterms.extract
+**/setup/setup_wizard/data/*.txt,optimaerp.gettext.extractors.lines_from_txt_file.extract
 **.tsx,frappe.gettext.extractors.html_template.extract
 **.ts,frappe.gettext.extractors.html_template.extract

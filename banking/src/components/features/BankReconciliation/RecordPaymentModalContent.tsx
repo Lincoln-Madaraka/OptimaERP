@@ -74,7 +74,7 @@ const BulkPaymentEntryForm = ({ transactions }: { transactions: UnreconciledTran
         mode_of_payment: PaymentEntry['mode_of_payment']
     }>()
 
-    const { call: createPaymentEntry, loading, error } = useFrappePostCall<{ message: { transaction: BankTransaction, payment_entry: PaymentEntry }[] }>('erpnext.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.create_bulk_payment_entry_and_reconcile')
+    const { call: createPaymentEntry, loading, error } = useFrappePostCall<{ message: { transaction: BankTransaction, payment_entry: PaymentEntry }[] }>('optimaerp.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.create_bulk_payment_entry_and_reconcile')
 
     const onReconcile = useRefreshUnreconciledTransactions()
 
@@ -138,7 +138,7 @@ const BulkPaymentEntryForm = ({ transactions }: { transactions: UnreconciledTran
     const onPartyChange = (event: ChangeEvent<HTMLInputElement>) => {
         // Fetch the party and account
         if (event.target.value) {
-            call.get('erpnext.accounts.doctype.payment_entry.payment_entry.get_party_details', {
+            call.get('optimaerp.accounts.doctype.payment_entry.payment_entry.get_party_details', {
                 company: company,
                 party_type: party_type,
                 party: event.target.value,
@@ -299,7 +299,7 @@ const PaymentEntryForm = ({ selectedTransaction, selectedBankAccount }: { select
 
     }, [rule, setUnpaidInvoiceOpen])
 
-    const { call: createPaymentEntry, loading, error, isCompleted } = useFrappePostCall<{ message: { transaction: BankTransaction, payment_entry: PaymentEntry } }>('erpnext.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.create_payment_entry_and_reconcile')
+    const { call: createPaymentEntry, loading, error, isCompleted } = useFrappePostCall<{ message: { transaction: BankTransaction, payment_entry: PaymentEntry } }>('optimaerp.accounts.doctype.bank_reconciliation_tool.bank_reconciliation_tool.create_payment_entry_and_reconcile')
 
     const setBankRecUnreconcileModalAtom = useSetAtom(bankRecUnreconcileModalAtom)
 
@@ -520,7 +520,7 @@ const PartyField = () => {
     const onChange = (event: ChangeEvent<HTMLInputElement>) => {
         // Fetch the party and account
         if (event.target.value) {
-            call.get('erpnext.accounts.doctype.payment_entry.payment_entry.get_party_details', {
+            call.get('optimaerp.accounts.doctype.payment_entry.payment_entry.get_party_details', {
                 company: company,
                 party_type: party_type,
                 party: event.target.value,
@@ -934,7 +934,7 @@ const FetchInvoicesModal = ({ onClose }: { onClose: () => void }) => {
     const { data, isLoading, error } = useFrappeGetCall<{
         message: OutstandingInvoice[],
         _server_messages?: string
-    }>('erpnext.accounts.doctype.payment_entry.payment_entry.get_outstanding_reference_documents', {
+    }>('optimaerp.accounts.doctype.payment_entry.payment_entry.get_outstanding_reference_documents', {
         args: {
             company: getValues('company'),
             posting_date: getValues('posting_date'),
@@ -1210,7 +1210,7 @@ const OtherChargesSection = ({ currency }: { currency: string }) => {
                                 doctype="Cost Center"
                                 reference_doctype="Payment Entry Deduction"
                                 customQuery={{
-                                    query: "erpnext.controllers.queries.get_filtered_dimensions",
+                                    query: "optimaerp.controllers.queries.get_filtered_dimensions",
                                     filters: {
                                         "dimension": "cost_center",
                                         "company": getValues('company'),

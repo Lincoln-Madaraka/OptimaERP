@@ -1,0 +1,32 @@
+frappe.listview_settings["Supplier Quotation"] = {
+	add_fields: ["supplier", "base_grand_total", "status", "company", "currency"],
+	get_indicator: function (doc) {
+		if (doc.status === "Submitted") {
+			return [__("Submitted"), "blue", "status,=,Submitted"];
+		} else if (doc.status === "Partially Ordered") {
+			return [__("Partially Ordered"), "yellow", "status,=,Partially Ordered"];
+		} else if (doc.status === "Ordered") {
+			return [__("Ordered"), "green", "status,=,Ordered"];
+		} else if (doc.status === "Expired") {
+			return [__("Expired"), "gray", "status,=,Expired"];
+		}
+	},
+
+	onload: function (listview) {
+		if (frappe.model.can_create("Purchase Order")) {
+			listview.page.add_action_item(__("Purchase Order"), () => {
+				optimaerp.bulk_transaction_processing.create(listview, "Supplier Quotation", "Purchase Order");
+			});
+		}
+
+		if (frappe.model.can_create("Purchase Invoice")) {
+			listview.page.add_action_item(__("Purchase Invoice"), () => {
+				optimaerp.bulk_transaction_processing.create(
+					listview,
+					"Supplier Quotation",
+					"Purchase Invoice"
+				);
+			});
+		}
+	},
+};

@@ -110,7 +110,7 @@ jobs:
       - name: Warm up test data
         run: |
           cd ~/frappe-bench/
-          bench --site test_site run-tests --lightmode --module erpnext.tests.bootstrap_test_data
+          bench --site test_site run-tests --lightmode --module optimaerp.tests.bootstrap_test_data
 
       - name: Stop DB and stage datadir
         run: |
@@ -194,7 +194,7 @@ jobs:
           # satisfies wkhtmltopdf without the frappe web server (which never bound on a bare runner).
           ( cd ~/frappe-bench/sites && nohup python3 -m http.server 8000 --bind 127.0.0.1 > ~/frappe-bench/web.log 2>&1 & )
           for _ in $(seq 1 15); do (exec 3<>/dev/tcp/127.0.0.1/8000) 2>/dev/null && { exec 3>&- 3<&-; break; }; sleep 1; done
-          bench --site test_site run-parallel-tests --lightmode --app erpnext \
+          bench --site test_site run-parallel-tests --lightmode --app optimaerp \
             --total-builds ${{ strategy.job-total }} --build-number ${{ matrix.container }}
         env:
           TYPE: server

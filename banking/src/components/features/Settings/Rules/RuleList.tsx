@@ -46,7 +46,7 @@ export const RunRulesButton = () => {
 
     const { data } = useGetRuleList()
 
-    const { call: runRuleEvaluation, loading: isRunningRules } = useFrappePostCall('erpnext.accounts.doctype.bank_transaction_rule.bank_transaction_rule.run_rule_evaluation')
+    const { call: runRuleEvaluation, loading: isRunningRules } = useFrappePostCall('optimaerp.accounts.doctype.bank_transaction_rule.bank_transaction_rule.run_rule_evaluation')
 
     const handleRunRules = async (forceEvaluate: boolean = false) => {
         try {

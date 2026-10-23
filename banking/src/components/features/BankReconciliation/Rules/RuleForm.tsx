@@ -339,7 +339,7 @@ const PartyField = () => {
     const onChange = (event: ChangeEvent<HTMLInputElement>) => {
         // Fetch the party and account
         if (event.target.value) {
-            call.get('erpnext.accounts.doctype.payment_entry.payment_entry.get_party_details', {
+            call.get('optimaerp.accounts.doctype.payment_entry.payment_entry.get_party_details', {
                 company: company,
                 party_type: party_type,
                 party: event.target.value,
@@ -503,7 +503,7 @@ const ConfigureAccountsModalContent = () => {
             if (partyMapRef.current[value]) {
                 setValue(`accounts.${index}.account`, partyMapRef.current[value])
             } else {
-                call.get('erpnext.accounts.party.get_party_account', {
+                call.get('optimaerp.accounts.party.get_party_account', {
                     party: value,
                     party_type: getValues(`accounts.${index}.party_type`),
                     company: company

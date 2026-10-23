@@ -9,7 +9,7 @@ const BankLogo = ({ bank, className, imageClassName, iconSize = '18px', iconClas
     const { themeValue } = useTheme()
     return (
         <div className={cn('h-6 flex items-center gap-1', className)}> {bank?.logo ? <img
-            src={`/assets/erpnext/images/bank-logos/${themeValue === 'Dark' ? (bank.logoDark ?? bank.logo) : bank.logo}`}
+            src={`/assets/optimaerp/images/bank-logos/${themeValue === 'Dark' ? (bank.logoDark ?? bank.logo) : bank.logo}`}
             alt={bank.bank || bank.name || ''}
             className={cn("h-6 max-w-22 me-auto object-contain", imageClassName, {
                 'dark:invert dark:brightness-0': bank.darkModeInvert

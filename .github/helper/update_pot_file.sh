@@ -8,13 +8,13 @@ pip install frappe-bench
 bench -v init frappe-bench --skip-assets --skip-redis-config-generation --python "$(which python)"
 cd ./frappe-bench || exit
 
-echo "Get ERPNext..."
-bench get-app --skip-assets erpnext "${GITHUB_WORKSPACE}"
+echo "Get OptimaERP..."
+bench get-app --skip-assets optimaerp "${GITHUB_WORKSPACE}"
 
 echo "Generating POT file..."
-bench generate-pot-file --app erpnext
+bench generate-pot-file --app optimaerp
 
-cd ./apps/erpnext || exit
+cd ./apps/optimaerp || exit
 
 echo "Configuring git user..."
 git config user.email "developers@erpnext.com"
@@ -30,7 +30,7 @@ branch_name="pot_${BASE_BRANCH}_${isodate}"
 git checkout -b "${branch_name}"
 
 echo "Commiting changes..."
-git add erpnext/locale/main.pot
+git add optimaerp/locale/main.pot
 git commit -m "chore: update POT file"
 
 gh auth setup-git
