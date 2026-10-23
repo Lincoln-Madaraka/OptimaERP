@@ -43,7 +43,7 @@ develop_version = "17.x.x-develop"
 app_include_js = "optimaerp.bundle.js"
 app_include_css = "optimaerp.bundle.css"
 web_include_css = "optimaerp-web.bundle.css"
-email_css = "email_optimaerp.bundle.css"
+email_css = "optimaerp_email.bundle.css"
 
 app_include_icons = [
 	"/assets/optimaerp/icons/pos-icons.svg",

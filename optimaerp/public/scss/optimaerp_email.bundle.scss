@@ -28,3 +28,8 @@
 	border: 1px solid var(--border-color);
 	background-color: white;
 }
+
+// The masthead logo is the OptimaERP wordmark, so the app name printed beside it would read twice.
+.brand-logo[src*="optimaerp-wordmark"] + .brand-name {
+	display: none;
+}
