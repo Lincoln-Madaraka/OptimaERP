@@ -1,0 +1,203 @@
+// Login page: OptimaERP brand panel on the left, sign-in card on the right.
+// Scoped to /login so the rest of the website keeps Frappe's styles.
+body[data-path="login"] {
+	background-color: #f4f5f8;
+
+	#page-login {
+		--login-ink: #0e1116;
+		--login-muted: #5b6270;
+		--login-line: #d7dbe4;
+		--login-blue: #2747f5;
+		--login-blue-hover: #1d38d4;
+
+		position: relative;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		min-height: 100vh;
+
+		&::before {
+			content: "";
+			grid-area: 1 / 1;
+			background:
+				url("/assets/optimaerp/images/optimaerp-wordmark-dark.svg") left 56px top 48px / auto 34px no-repeat,
+				url("/assets/optimaerp/images/login-panel.svg") center bottom 48px / 78% auto no-repeat,
+				radial-gradient(circle at 90% 8%, rgba(39, 71, 245, 0.38), transparent 52%),
+				var(--login-ink);
+		}
+
+		&::after {
+			content: "Run your whole business\A in one place.";
+			position: absolute;
+			top: 136px;
+			left: 56px;
+			width: calc(50% - 112px);
+			white-space: pre-line;
+			pointer-events: none;
+			color: #fff;
+			font-size: 34px;
+			font-weight: 700;
+			line-height: 1.2;
+			letter-spacing: -0.02em;
+		}
+
+		.page-content-wrapper {
+			grid-area: 1 / 2;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-height: 100vh;
+			padding: 48px 32px;
+		}
+
+		.page-breadcrumbs,
+		.page-header-wrapper {
+			display: none;
+		}
+
+		main.container {
+			width: 100%;
+			max-width: 440px;
+			padding: 0;
+		}
+
+		.page-card {
+			max-width: 440px;
+			min-height: 0;
+			padding: 40px;
+			background-color: #fff;
+			border: 1px solid #e6e8ee;
+			border-radius: 20px;
+			box-shadow: 0 24px 60px rgba(14, 17, 22, 0.08);
+		}
+
+		.page-card-head {
+			img.app-logo {
+				display: none;
+			}
+
+			h4 {
+				font-size: 28px;
+				font-weight: 700;
+				letter-spacing: -0.02em;
+				color: var(--login-ink);
+			}
+
+			.page-card-subtitle {
+				color: var(--login-muted);
+			}
+		}
+
+		.page-card-body {
+			label {
+				font-size: 14px;
+				font-weight: 500;
+				color: #3a404c;
+			}
+
+			input[type="text"],
+			input[type="email"],
+			input[type="password"] {
+				height: 44px;
+				padding: 10px 14px;
+				font-size: 15px;
+				border: 1px solid var(--login-line);
+				border-radius: 10px;
+				background-color: #fff;
+				transition: border-color 0.15s, box-shadow 0.15s;
+
+				&:focus {
+					outline: none;
+					border-color: var(--login-blue);
+					box-shadow: 0 0 0 3px rgba(39, 71, 245, 0.15);
+				}
+			}
+
+			.form-group.invalid input {
+				border-color: var(--outline-red-3);
+			}
+
+			.password-field input {
+				padding-right: 42px;
+			}
+
+			.toggle-password {
+				right: 14px;
+			}
+		}
+
+		.page-card a:not(.es-button) {
+			color: var(--login-blue);
+			font-weight: 500;
+		}
+
+		.page-card .es-button {
+			height: 44px;
+			font-size: 15px;
+			font-weight: 600;
+			border-radius: 10px;
+			border: 1px solid var(--login-line);
+			background-color: #fff;
+			color: var(--login-ink);
+
+			&:hover {
+				background-color: #f4f5f8;
+			}
+
+			&[data-variant="solid"] {
+				border-color: var(--login-blue);
+				background-color: var(--login-blue);
+				color: #fff;
+
+				&:hover {
+					border-color: var(--login-blue-hover);
+					background-color: var(--login-blue-hover);
+				}
+			}
+		}
+	}
+
+	@media (max-width: 1199.98px) {
+		#page-login::after {
+			left: 40px;
+			width: calc(50% - 80px);
+			font-size: 28px;
+		}
+	}
+
+	@media (max-height: 760px) and (min-width: 992px) {
+		#page-login::before {
+			background-size: auto 34px, 58% auto, auto, auto;
+		}
+	}
+
+	@media (max-width: 991.98px) {
+		#page-login {
+			grid-template-columns: minmax(0, 1fr);
+			grid-template-rows: 64px auto;
+
+			&::before {
+				background:
+					url("/assets/optimaerp/images/optimaerp-wordmark-dark.svg") left 20px center / auto 26px no-repeat,
+					var(--login-ink);
+			}
+
+			&::after {
+				display: none;
+			}
+
+			.page-content-wrapper {
+				grid-area: 2 / 1;
+				align-items: flex-start;
+				min-height: calc(100vh - 64px);
+				padding: 32px 16px;
+			}
+		}
+	}
+
+	@media (max-width: 575.98px) {
+		#page-login .page-card {
+			padding: 28px 20px;
+			border-radius: 16px;
+		}
+	}
+}
