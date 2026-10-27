@@ -1,7 +1,7 @@
-// Login page: OptimaERP brand panel on the left, sign-in card on the right.
+// Login page: OptimaERP brand panel on the left, sign-in form on the right.
 // Scoped to /login so the rest of the website keeps Frappe's styles.
 body[data-path="login"] {
-	background-color: #f4f5f8;
+	background-color: #fff;
 
 	#page-login {
 		--login-ink: #0e1116;
@@ -9,35 +9,53 @@ body[data-path="login"] {
 		--login-line: #d7dbe4;
 		--login-blue: #2747f5;
 		--login-blue-hover: #1d38d4;
+		--login-panel-x: 64px;
 
 		position: relative;
 		display: grid;
 		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 		min-height: 100vh;
+		background-color: #fff;
 
+		// Panel: wordmark, the turning Optima ring "engine" and a soft blue glow
 		&::before {
 			content: "";
 			grid-area: 1 / 1;
 			background:
-				url("/assets/optimaerp/images/optimaerp-wordmark-dark.svg") left 56px top 48px / auto 34px no-repeat,
-				url("/assets/optimaerp/images/login-panel.svg") center bottom 48px / 78% auto no-repeat,
-				radial-gradient(circle at 90% 8%, rgba(39, 71, 245, 0.38), transparent 52%),
+				url("/assets/optimaerp/images/optimaerp-wordmark-dark.svg") left var(--login-panel-x) top 56px / auto 36px no-repeat,
+				url("/assets/optimaerp/images/login-panel.svg") center bottom 40px / auto 50vh no-repeat,
+				radial-gradient(circle at 92% 6%, rgba(39, 71, 245, 0.32), transparent 50%),
 				var(--login-ink);
 		}
 
+		// Panel headline
 		&::after {
 			content: "Run your whole business\A in one place.";
 			position: absolute;
-			top: 136px;
-			left: 56px;
-			width: calc(50% - 112px);
+			top: 152px;
+			left: var(--login-panel-x);
+			width: calc(50% - 2 * var(--login-panel-x));
 			white-space: pre-line;
 			pointer-events: none;
 			color: #fff;
-			font-size: 34px;
+			font-size: 44px;
 			font-weight: 700;
-			line-height: 1.2;
-			letter-spacing: -0.02em;
+			line-height: 1.12;
+			letter-spacing: -0.03em;
+		}
+
+		// Panel subline (positioned against #page-login, not the wrapper)
+		.page-content-wrapper::before {
+			content: "Accounts, sales, stock, HR and projects, moving together.";
+			position: absolute;
+			top: 268px;
+			left: var(--login-panel-x);
+			width: calc(50% - 2 * var(--login-panel-x));
+			max-width: 440px;
+			pointer-events: none;
+			color: rgba(255, 255, 255, 0.62);
+			font-size: 17px;
+			line-height: 1.55;
 		}
 
 		.page-content-wrapper {
@@ -46,7 +64,7 @@ body[data-path="login"] {
 			align-items: center;
 			justify-content: center;
 			min-height: 100vh;
-			padding: 48px 32px;
+			padding: 64px 48px;
 		}
 
 		.page-breadcrumbs,
@@ -56,59 +74,79 @@ body[data-path="login"] {
 
 		main.container {
 			width: 100%;
-			max-width: 440px;
+			max-width: 420px;
 			padding: 0;
 		}
 
 		.page-card {
-			max-width: 440px;
+			max-width: 420px;
 			min-height: 0;
-			padding: 40px;
-			background-color: #fff;
-			border: 1px solid #e6e8ee;
-			border-radius: 20px;
-			box-shadow: 0 24px 60px rgba(14, 17, 22, 0.08);
+			padding: 0;
+			gap: 40px;
+			background-color: transparent;
+			border: 0;
+			border-radius: 0;
+			box-shadow: none;
 		}
 
 		.page-card-head {
+			gap: 0;
+
 			img.app-logo {
 				display: none;
 			}
 
+			.page-card-head-text {
+				gap: 10px;
+			}
+
 			h4 {
-				font-size: 28px;
+				font-size: 36px;
 				font-weight: 700;
-				letter-spacing: -0.02em;
+				line-height: 1.15;
+				letter-spacing: -0.03em;
 				color: var(--login-ink);
 			}
 
 			.page-card-subtitle {
+				font-size: 16px;
 				color: var(--login-muted);
 			}
 		}
 
+		form.form-signin {
+			gap: 32px;
+		}
+
 		.page-card-body {
+			gap: 24px;
+
+			.form-group,
+			.form-group > div {
+				gap: 8px;
+			}
+
 			label {
 				font-size: 14px;
-				font-weight: 500;
-				color: #3a404c;
+				font-weight: 600;
+				color: #2b313c;
 			}
 
 			input[type="text"],
 			input[type="email"],
 			input[type="password"] {
-				height: 44px;
-				padding: 10px 14px;
-				font-size: 15px;
+				height: 50px;
+				padding: 0 16px;
+				font-size: 16px;
 				border: 1px solid var(--login-line);
-				border-radius: 10px;
+				border-radius: 12px;
 				background-color: #fff;
 				transition: border-color 0.15s, box-shadow 0.15s;
 
 				&:focus {
 					outline: none;
 					border-color: var(--login-blue);
-					box-shadow: 0 0 0 3px rgba(39, 71, 245, 0.15);
+					box-shadow: 0 0 0 4px rgba(39, 71, 245, 0.14);
 				}
 			}
 
@@ -117,27 +155,33 @@ body[data-path="login"] {
 			}
 
 			.password-field input {
-				padding-right: 42px;
+				padding-right: 48px;
 			}
 
 			.toggle-password {
-				right: 14px;
+				right: 16px;
 			}
+		}
+
+		.page-card-actions {
+			gap: 12px;
 		}
 
 		.page-card a:not(.es-button) {
 			color: var(--login-blue);
+			font-size: 14px;
 			font-weight: 500;
 		}
 
 		.page-card .es-button {
-			height: 44px;
-			font-size: 15px;
+			height: 50px;
+			font-size: 16px;
 			font-weight: 600;
-			border-radius: 10px;
+			border-radius: 12px;
 			border: 1px solid var(--login-line);
 			background-color: #fff;
 			color: var(--login-ink);
+			transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
 
 			&:hover {
 				background-color: #f4f5f8;
@@ -147,26 +191,57 @@ body[data-path="login"] {
 				border-color: var(--login-blue);
 				background-color: var(--login-blue);
 				color: #fff;
+				box-shadow: 0 10px 24px -10px rgba(39, 71, 245, 0.7);
 
 				&:hover {
 					border-color: var(--login-blue-hover);
 					background-color: var(--login-blue-hover);
 				}
 			}
+
+			// Signing in: the Optima ring spins in place of the label
+			&[aria-busy="true"] .es-spinner {
+				width: 24px;
+				height: 24px;
+				background: url("/assets/optimaerp/images/optimaerp-ring.svg") center / contain no-repeat;
+				-webkit-mask: none;
+				mask: none;
+				animation: none;
+			}
 		}
 	}
 
-	@media (max-width: 1199.98px) {
-		#page-login::after {
-			left: 40px;
-			width: calc(50% - 80px);
-			font-size: 28px;
+	@media (max-width: 1279.98px) {
+		#page-login {
+			--login-panel-x: 48px;
+
+			&::after {
+				font-size: 36px;
+			}
+
+			.page-content-wrapper::before {
+				top: 244px;
+				font-size: 16px;
+			}
 		}
 	}
 
-	@media (max-height: 760px) and (min-width: 992px) {
-		#page-login::before {
-			background-size: auto 34px, 58% auto, auto, auto;
+	@media (max-height: 820px) and (min-width: 992px) {
+		#page-login {
+			&::before {
+				background-position: left var(--login-panel-x) top 44px, center bottom 24px, 0 0, 0 0;
+				background-size: auto 32px, auto 44vh, auto, auto;
+			}
+
+			&::after {
+				top: 116px;
+				font-size: 34px;
+			}
+
+			.page-content-wrapper::before {
+				top: 210px;
+				font-size: 15px;
+			}
 		}
 	}
 
@@ -181,7 +256,8 @@ body[data-path="login"] {
 					var(--login-ink);
 			}
 
-			&::after {
+			&::after,
+			.page-content-wrapper::before {
 				display: none;
 			}
 
@@ -189,15 +265,12 @@ body[data-path="login"] {
 				grid-area: 2 / 1;
 				align-items: flex-start;
 				min-height: calc(100vh - 64px);
-				padding: 32px 16px;
+				padding: 48px 24px;
 			}
-		}
-	}
 
-	@media (max-width: 575.98px) {
-		#page-login .page-card {
-			padding: 28px 20px;
-			border-radius: 16px;
+			.page-card-head h4 {
+				font-size: 30px;
+			}
 		}
 	}
 }

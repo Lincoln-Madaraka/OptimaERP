@@ -36,6 +36,7 @@ def after_install():
 	add_company_to_session_defaults()
 	add_standard_navbar_items()
 	add_app_name()
+	set_default_app()
 	set_app_logos()
 	update_roles()
 	make_default_operations()
@@ -280,6 +281,12 @@ def add_standard_navbar_items():
 
 def add_app_name():
 	frappe.db.set_single_value("System Settings", "app_name", "OptimaERP")
+
+
+def set_default_app():
+	"""Land users in OptimaERP after login instead of the apps screen, unless a default is already set."""
+	if not frappe.db.get_single_value("System Settings", "default_app"):
+		frappe.db.set_single_value("System Settings", "default_app", "optimaerp")
 
 
 def set_app_logos():

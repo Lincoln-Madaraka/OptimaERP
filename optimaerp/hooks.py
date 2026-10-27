@@ -135,7 +135,7 @@ website_generators = ["BOM", "Sales Partner"]
 
 website_context = {
 	"favicon": "/assets/optimaerp/images/optimaerp-icon-small.svg",
-	"splash_image": "/assets/optimaerp/images/optimaerp-icon.svg",
+	"splash_image": "/assets/optimaerp/images/optimaerp-loader.svg",
 }
 
 # nosemgrep
