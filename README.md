@@ -58,7 +58,9 @@ OptimaERP ships the complete ERPNext v17 feature set under its own name and bran
 ### What OptimaERP adds
 
 - **Its own brand, everywhere:** logo, wordmark, favicon, desk app icon, browser tab title and email header. The app is `optimaerp` in code as well as on screen.
-- **A redesigned sign-in page:** a split layout with a brand panel, set in the OptimaERP colours.
+- **A calm, matte sign-in page:** a light page with a flat black half, one white card across the split, and the OptimaERP ring turning slowly in the corner. While you sign in, the ring spins on the Continue button.
+- **Straight into OptimaERP after sign-in:** OptimaERP is the site's default app, so people land in their workspace instead of an app picker. A user's own default app, such as HR for the HR manager, still wins.
+- **No Frappe branding on the apps screen:** the HR tile and the System tile (the Frappe framework's settings, shown to System Managers only) carry OptimaERP-style icons and plain names.
 - **A ring loader:** after sign-in, the logo's ring spins on the page while the desk loads, in light and dark themes, with a calmer pulse for people who turn off motion.
 - **Logos set on install:** a new site gets the OptimaERP logos in Website Settings and Navbar Settings automatically. A logo you have already set is never overwritten, and a patch brings existing sites up to date.
 - **Developed on PostgreSQL:** the development site runs on PostgreSQL every day, and MariaDB works as it does in ERPNext.
@@ -93,7 +95,7 @@ Requirements: Python 3.14, Node 24+, Yarn 1.x, Redis, and PostgreSQL or MariaDB.
 ```sh
 bench init optimaerp-bench --frappe-branch develop --python python3.14
 cd optimaerp-bench
-bench get-app https://github.com/Lincoln-Madaraka/erpnext.git --branch main
+bench get-app https://github.com/Lincoln-Madaraka/OptimaERP.git --branch main
 ```
 
 The app installs as `optimaerp`. Create a dedicated site and database for it. Never point OptimaERP at another application's database.
@@ -111,6 +113,8 @@ Open **http://optimaerp.localhost:8000** and sign in as `Administrator` with the
 For MariaDB, drop `--db-type postgres`. If port 8000 is taken, change `webserver_port` in `sites/common_site_config.json` and the `web` line in `Procfile`.
 
 > **Frappe compatibility.** Frappe still names `erpnext` in a few places: the setup-complete check (`frappe/__init__.py`), the installed-applications setup status, the billing bundle's list of desk apps and the legacy Gravatar clean-up. The development bench runs Frappe `develop` with those references switched to `optimaerp`. Make the same change in your Frappe checkout so Frappe treats OptimaERP the way it treats ERPNext during setup.
+>
+> Two more Frappe edits are optional. In `frappe/auth.py`, the desk sign-in returns `get_default_path()` first, so the Default App setting applies to desk users and not only to portal users. In `frappe/hooks.py`, the Framework tile becomes **System** with `/assets/optimaerp/images/optimaerp-system-icon.svg`. The adapted Frappe HR copy names its own tile **HR** in its `hooks.py`.
 
 ## Demo users
 
@@ -165,6 +169,9 @@ All brand files live in `optimaerp/public/images`:
 | `optimaerp-wordmark.svg` / `.png` | Sign-in page, website navbar and email header (PNG, as mail clients drop SVG) |
 | `optimaerp-wordmark-dark.svg` | Wordmark for dark backgrounds |
 | `optimaerp-loader.svg` | Fallback loader image |
+| `optimaerp-hr-icon.svg` / `optimaerp-system-icon.svg` | HR and System tiles on the apps screen |
+| `login-ring.svg` | The slowly turning ring on the sign-in page's black half |
+| `optimaerp-ring.svg` | Spinner on the Continue button while signing in |
 
 `hooks.py` points Frappe at the icons. `optimaerp.setup.install.set_app_logos` fills the logo fields on install, and the post-sign-in loader is `optimaerp/templates/includes/splash_screen.html`, which replaces Frappe's version. To re-brand for a client, swap these files and keep their names, then run `bench build --app optimaerp`.
 
@@ -180,7 +187,7 @@ optimaerp/
   crm/  assets/  support/  quality_management/  subcontracting/  ...
                            one Frappe module per business area: DocTypes, reports, workspaces
   hooks.py                 app wiring: icons, loader, document events, scheduler
-  setup/install.py         after-install defaults: app name, logos, roles
+  setup/install.py         after-install defaults: app name, default app, logos, roles
   patches.txt              ordered data migrations, run by `bench migrate`
   public/images/           logo, wordmark, favicon, loader
   public/scss/             desk, sign-in, website and email styles
