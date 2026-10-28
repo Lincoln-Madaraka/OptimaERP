@@ -46,16 +46,17 @@ export default function Home() {
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {filtered.map((module) => (
-            <div
+            <a
               key={module.name}
-              className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+              href={`/login?module=${encodeURIComponent(module.name)}`}
+              className="block rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-blue-400 hover:shadow-md"
             >
               <div className="mb-5 text-3xl text-blue-600">{module.icon}</div>
               <h2 className="font-semibold">{module.name}</h2>
               <p className="mt-2 text-sm leading-6 text-slate-500">
                 {module.description}
               </p>
-            </div>
+            </a>
           ))}
         </div>
       </main>
